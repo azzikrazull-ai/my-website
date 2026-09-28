@@ -1,4 +1,4 @@
-name: Deploy Website via VPN
+name: Deploy Website via Docker
 
 on:
   push:
@@ -17,7 +17,7 @@ jobs:
         with:
           authkey: ${{ secrets.TAILSCALE_AUTHKEY }}
 
-      - name: Deploy via SSH over VPN
+      - name: Deploy via SSH & Docker
         uses: appleboy/ssh-action@v1.0.3
         with:
           host: ${{ secrets.SERVER_IP }}
@@ -26,3 +26,5 @@ jobs:
           script: |
             cd /var/www/my-website
             git pull origin main
+            docker compose build
+            docker compose up -d
