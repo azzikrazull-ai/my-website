@@ -461,19 +461,20 @@
   .project-info h3 { margin-bottom: 10px; font-size: 1.3rem; }
   .project-info p { color: var(--gray); font-size: 0.95rem; line-height: 1.6; }
   
-  .contact-content {
+  /* Contact - Hanya Info, Tanpa Form */
+  .contact-wrapper {
+    max-width: 900px;
+    margin: 0 auto;
     display: grid;
-    grid-template-columns: 1fr 1.5fr;
-    gap: 50px;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 25px;
   }
-  
-  .contact-info { display: flex; flex-direction: column; gap: 25px; }
   
   .contact-item {
     display: flex;
     align-items: center;
     gap: 20px;
-    padding: 20px;
+    padding: 25px;
     background: var(--card-bg);
     border-radius: 15px;
     border: 1px solid rgba(255,255,255,0.05);
@@ -481,53 +482,24 @@
   }
   
   .contact-item:hover {
-    transform: translateX(10px);
+    transform: translateY(-5px);
     border-color: var(--primary);
+    box-shadow: 0 15px 30px rgba(99, 102, 241, 0.15);
   }
   
   .contact-item i {
-    width: 50px; height: 50px;
+    width: 55px; height: 55px;
+    min-width: 55px;
     border-radius: 12px;
     background: linear-gradient(135deg, var(--primary), var(--secondary));
     display: flex;
     align-items: center;
     justify-content: center;
-    font-size: 1.3rem;
+    font-size: 1.4rem;
   }
   
-  .contact-item h4 { margin-bottom: 5px; }
+  .contact-item h4 { margin-bottom: 5px; font-size: 1.05rem; }
   .contact-item p { color: var(--gray); font-size: 0.95rem; }
-  
-  .contact-form {
-    background: var(--card-bg);
-    padding: 40px;
-    border-radius: 20px;
-    border: 1px solid rgba(255,255,255,0.05);
-  }
-  
-  .form-group { margin-bottom: 20px; }
-  
-  .form-group input,
-  .form-group textarea {
-    width: 100%;
-    padding: 15px;
-    background: rgba(255,255,255,0.05);
-    border: 1px solid rgba(255,255,255,0.1);
-    border-radius: 10px;
-    color: var(--light);
-    font-size: 1rem;
-    transition: 0.3s;
-    font-family: inherit;
-  }
-  
-  .form-group input:focus,
-  .form-group textarea:focus {
-    outline: none;
-    border-color: var(--primary);
-    background: rgba(99, 102, 241, 0.05);
-  }
-  
-  .form-group textarea { resize: vertical; min-height: 120px; }
   
   footer {
     text-align: center;
@@ -571,7 +543,7 @@
     .hero-buttons { justify-content: center; }
     .social-links { justify-content: center; }
     .profile-img { width: 280px; height: 280px; }
-    .about-content, .contact-content { grid-template-columns: 1fr; }
+    .about-content { grid-template-columns: 1fr; }
     .nav-links { 
       display: none;
       position: absolute;
@@ -723,20 +695,6 @@
       <div class="skill-bar"><div class="skill-progress" data-progress="80"></div></div>
       <div class="skill-level"><span>Advanced</span><span>80%</span></div>
     </div>
-    <div class="skill-card">
-      <div class="skill-icon"><i class="fas fa-shield-alt"></i></div>
-      <h3>Basic Cybersecurity</h3>
-      <p>Implementasi firewall, SSL/TLS, server hardening, dan praktik keamanan jaringan.</p>
-      <div class="skill-bar"><div class="skill-progress" data-progress="75"></div></div>
-      <div class="skill-level"><span>Intermediate</span><span>75%</span></div>
-    </div>
-    <div class="skill-card">
-      <div class="skill-icon"><i class="fas fa-cloud"></i></div>
-      <h3>Cloud & Deployment</h3>
-      <p>Deployment aplikasi, manajemen cloud VPS, dan penggunaan Docker untuk containerization.</p>
-      <div class="skill-bar"><div class="skill-progress" data-progress="70"></div></div>
-      <div class="skill-level"><span>Intermediate</span><span>70%</span></div>
-    </div>
   </div>
 </section>
 
@@ -795,60 +753,41 @@
   </div>
 </section>
 
-<!-- Contact -->
+<!-- Contact (Tanpa Form) -->
 <section id="contact" class="reveal">
   <div class="section-title">
     <h2>Hubungi <span class="gradient-text">Saya</span></h2>
     <p>Mari berdiskusi tentang kebutuhan server, jaringan, atau website Anda</p>
   </div>
-  <div class="contact-content">
-    <div class="contact-info">
-      <div class="contact-item">
-        <i class="fas fa-envelope"></i>
-        <div>
-          <h4>Email</h4>
-          <p>azzkrazull@gmail.com</p>
-        </div>
-      </div>
-      <div class="contact-item">
-        <i class="fas fa-phone"></i>
-        <div>
-          <h4>Telepon</h4>
-          <p>087860550780</p>
-        </div>
-      </div>
-      <div class="contact-item">
-        <i class="fas fa-map-marker-alt"></i>
-        <div>
-          <h4>Lokasi</h4>
-          <p>Jln. Anawai</p>
-        </div>
-      </div>
-      <div class="contact-item">
-        <i class="fab fa-whatsapp"></i>
-        <div>
-          <h4>WhatsApp</h4>
-          <p>087860550780</p>
-        </div>
+  <div class="contact-wrapper">
+    <div class="contact-item">
+      <i class="fas fa-envelope"></i>
+      <div>
+        <h4>Email</h4>
+        <p>azzkrazull@gmail.com</p>
       </div>
     </div>
-    <form class="contact-form" onsubmit="submitForm(event)">
-      <div class="form-group">
-        <input type="text" placeholder="Nama Anda" required>
+    <div class="contact-item">
+      <i class="fas fa-phone"></i>
+      <div>
+        <h4>Telepon</h4>
+        <p>087860550780</p>
       </div>
-      <div class="form-group">
-        <input type="email" placeholder="Email Anda" required>
+    </div>
+    <div class="contact-item">
+      <i class="fas fa-map-marker-alt"></i>
+      <div>
+        <h4>Lokasi</h4>
+        <p>Jln. Anawai</p>
       </div>
-      <div class="form-group">
-        <input type="text" placeholder="Subjek" required>
+    </div>
+    <div class="contact-item">
+      <i class="fab fa-whatsapp"></i>
+      <div>
+        <h4>WhatsApp</h4>
+        <p>087860550780</p>
       </div>
-      <div class="form-group">
-        <textarea placeholder="Pesan Anda" required></textarea>
-      </div>
-      <button type="submit" class="btn btn-primary" style="width: 100%;">
-        Kirim Pesan <i class="fas fa-paper-plane"></i>
-      </button>
-    </form>
+    </div>
   </div>
 </section>
 
@@ -876,7 +815,7 @@
     });
   });
   
-  // Typing effect (DIUBAH SESUAI PROFIL IT)
+  // Typing effect
   const typingTexts = ['Server Administrator', 'Network Engineer', 'Web Developer', 'IT Infrastructure Specialist'];
   let textIndex = 0, charIndex = 0, isDeleting = false;
   
@@ -910,7 +849,6 @@
     entries.forEach(entry => {
       if (entry.isIntersecting) {
         entry.target.classList.add('active');
-        // Animate skill bars
         entry.target.querySelectorAll('.skill-progress').forEach(bar => {
           bar.style.width = bar.dataset.progress + '%';
         });
@@ -919,13 +857,6 @@
   }, { threshold: 0.1 });
   
   reveals.forEach(el => revealObserver.observe(el));
-  
-  // Form submit
-  function submitForm(e) {
-    e.preventDefault();
-    alert('Terima kasih! Pesan Anda telah dikirim. Saya akan segera membalas.');
-    e.target.reset();
-  }
 </script>
 
 </body>
