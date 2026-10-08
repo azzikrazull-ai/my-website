@@ -381,10 +381,10 @@
   
   /* Contact - Hanya Info, Tanpa Form */
   .contact-wrapper {
-    max-width: 900px;
+    max-width: 1000px;
     margin: 0 auto;
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    grid-template-columns: repeat(3, 1fr); /* 3 Kolom sejajar */
     gap: 25px;
   }
   
@@ -397,12 +397,15 @@
     border-radius: 15px;
     border: 1px solid rgba(255,255,255,0.05);
     transition: 0.3s;
+    text-decoration: none; /* Menghilangkan garis bawah link */
+    color: inherit;
   }
   
   .contact-item:hover {
     transform: translateY(-5px);
     border-color: var(--primary);
     box-shadow: 0 15px 30px rgba(99, 102, 241, 0.15);
+    background: rgba(255, 255, 255, 0.08);
   }
   
   .contact-item i {
@@ -462,6 +465,7 @@
     .social-links { justify-content: center; }
     .profile-img { width: 280px; height: 280px; }
     .about-content { grid-template-columns: 1fr; }
+    .contact-wrapper { grid-template-columns: 1fr; } /* Stack vertikal di HP */
     .nav-links { 
       display: none;
       position: absolute;
@@ -504,7 +508,6 @@
     <h2>Seorang <span class="typing" id="typing">Server Administrator</span></h2>
     <p>Saya seorang profesional IT yang passionate dalam pengelolaan server, infrastruktur jaringan, dan pengembangan website. Saya berfokus pada menciptakan solusi digital yang aman, stabil, dan berkinerja tinggi. Mari berkolaborasi!</p>
     <div class="hero-buttons">
-      <!-- PERBAIKAN DI SINI: Link disesuaikan dengan nama file asli -->
       <a href="CV%20Muh%20Riyad%20Azzikra%20Dzulhijjah.pdf" class="btn btn-primary" download="CV_Muh_Riyad_Azzikra_Dzulhijjah.pdf">
         <i class="fas fa-download"></i> Unduh CV
       </a>
@@ -560,17 +563,15 @@
         <p>Tahun Pengalaman</p>
       </div>
       <div class="stat-card">
-        <!-- DIUBAH: Server Dikelola menjadi 1 -->
         <h3>1</h3>
         <p>Server Dikelola</p>
       </div>
       <div class="stat-card">
-        <!-- DIUBAH: Proyek Jaringan menjadi 0 -->
-        <h3>0</h3>
+        <!-- DIUBAH: Proyek Jaringan menjadi 1 -->
+        <h3>1</h3>
         <p>Proyek Jaringan</p>
       </div>
       <div class="stat-card">
-        <!-- DIUBAH: Website Dibangun menjadi 2 -->
         <h3>2</h3>
         <p>Website Dibangun</p>
       </div>
@@ -616,41 +617,41 @@
   </div>
 </section>
 
-<!-- Contact (Tanpa Form) -->
+<!-- Contact (Tanpa Form, Hanya 3 Item Berfungsi) -->
 <section id="contact" class="reveal">
   <div class="section-title">
     <h2>Hubungi <span class="gradient-text">Saya</span></h2>
     <p>Mari berdiskusi tentang kebutuhan server, jaringan, atau website Anda</p>
   </div>
   <div class="contact-wrapper">
-    <div class="contact-item">
+    
+    <!-- Email Link -->
+    <a href="mailto:azzkrazull@gmail.com" class="contact-item">
       <i class="fas fa-envelope"></i>
       <div>
         <h4>Email</h4>
         <p>azzkrazull@gmail.com</p>
       </div>
-    </div>
-    <div class="contact-item">
-      <i class="fas fa-phone"></i>
-      <div>
-        <h4>Telepon</h4>
-        <p>087860550780</p>
-      </div>
-    </div>
-    <div class="contact-item">
-      <i class="fas fa-map-marker-alt"></i>
-      <div>
-        <h4>Lokasi</h4>
-        <p>Jln. Anawai</p>
-      </div>
-    </div>
-    <div class="contact-item">
+    </a>
+
+    <!-- WhatsApp Link -->
+    <a href="https://wa.me/6287860550780" target="_blank" class="contact-item">
       <i class="fab fa-whatsapp"></i>
       <div>
         <h4>WhatsApp</h4>
         <p>087860550780</p>
       </div>
-    </div>
+    </a>
+
+    <!-- Lokasi Link (Google Maps) -->
+    <a href="https://www.google.com/maps/search/?api=1&query=Jln.+Anawai" target="_blank" class="contact-item">
+      <i class="fas fa-map-marker-alt"></i>
+      <div>
+        <h4>Lokasi</h4>
+        <p>Jln. Anawai</p>
+      </div>
+    </a>
+
   </div>
 </section>
 
