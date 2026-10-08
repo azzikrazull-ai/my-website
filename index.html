@@ -379,88 +379,6 @@
     color: var(--gray);
   }
   
-  .projects-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-    gap: 30px;
-  }
-  
-  .project-card {
-    background: var(--card-bg);
-    border-radius: 20px;
-    overflow: hidden;
-    border: 1px solid rgba(255,255,255,0.05);
-    transition: 0.3s;
-  }
-  
-  .project-card:hover {
-    transform: translateY(-10px);
-    box-shadow: 0 20px 40px rgba(0,0,0,0.3);
-  }
-  
-  .project-image {
-    height: 220px;
-    background: linear-gradient(135deg, var(--primary), var(--secondary));
-    position: relative;
-    overflow: hidden;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 4rem;
-    color: white;
-  }
-  
-  .project-overlay {
-    position: absolute;
-    inset: 0;
-    background: rgba(0,0,0,0.7);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 15px;
-    opacity: 0;
-    transition: 0.3s;
-  }
-  
-  .project-card:hover .project-overlay { opacity: 1; }
-  
-  .project-overlay a {
-    width: 45px; height: 45px;
-    border-radius: 50%;
-    background: white;
-    color: var(--dark);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    text-decoration: none;
-    transition: 0.3s;
-  }
-  
-  .project-overlay a:hover {
-    background: var(--primary);
-    color: white;
-  }
-  
-  .project-info { padding: 25px; }
-  
-  .project-tags {
-    display: flex;
-    gap: 10px;
-    flex-wrap: wrap;
-    margin-bottom: 15px;
-  }
-  
-  .project-tags span {
-    padding: 5px 12px;
-    background: rgba(99, 102, 241, 0.15);
-    color: var(--primary);
-    border-radius: 20px;
-    font-size: 0.8rem;
-  }
-  
-  .project-info h3 { margin-bottom: 10px; font-size: 1.3rem; }
-  .project-info p { color: var(--gray); font-size: 0.95rem; line-height: 1.6; }
-  
   /* Contact - Hanya Info, Tanpa Form */
   .contact-wrapper {
     max-width: 900px;
@@ -571,7 +489,7 @@
     <li><a href="#home">Beranda</a></li>
     <li><a href="#about">Tentang</a></li>
     <li><a href="#skills">Skill</a></li>
-    <li><a href="#projects">Proyek</a></li>
+    <!-- Link Proyek Dihapus -->
     <li><a href="#contact">Kontak</a></li>
   </ul>
   <div class="menu-toggle" onclick="toggleMenu()">
@@ -587,8 +505,9 @@
     <h2>Seorang <span class="typing" id="typing">Server Administrator</span></h2>
     <p>Saya seorang profesional IT yang passionate dalam pengelolaan server, infrastruktur jaringan, dan pengembangan website. Saya berfokus pada menciptakan solusi digital yang aman, stabil, dan berkinerja tinggi. Mari berkolaborasi!</p>
     <div class="hero-buttons">
-      <a href="#projects" class="btn btn-primary">
-        Lihat Karya <i class="fas fa-arrow-right"></i>
+      <!-- Tombol Lihat Karya Dihapus karena tidak ada halaman proyek -->
+      <a href="cv.pdf" class="btn btn-primary" download="CV_Muh_Riyad_Azzikra_Dzulhijjah.pdf">
+        <i class="fas fa-download"></i> Unduh CV
       </a>
       <a href="#contact" class="btn btn-outline">
         Hubungi Saya
@@ -635,9 +554,6 @@
           Open for Collaboration
         </div>
       </div>
-      <a href="#" class="btn btn-primary">
-        <i class="fas fa-download"></i> Download CV
-      </a>
     </div>
     <div class="stats">
       <div class="stat-card">
@@ -698,60 +614,7 @@
   </div>
 </section>
 
-<!-- Projects -->
-<section id="projects" class="reveal">
-  <div class="section-title">
-    <h2>Proyek <span class="gradient-text">Terbaru</span></h2>
-    <p>Beberapa infrastruktur dan website yang telah saya kerjakan</p>
-  </div>
-  <div class="projects-grid">
-    <div class="project-card">
-      <div class="project-image">
-        <i class="fas fa-server"></i>
-        <div class="project-overlay">
-          <a href="#"><i class="fas fa-link"></i></a>
-        </div>
-      </div>
-      <div class="project-info">
-        <div class="project-tags">
-          <span>Linux</span><span>Nginx</span><span>VPS</span>
-        </div>
-        <h3>Deployment Server & VPS</h3>
-        <p>Konfigurasi dan optimasi server VPS Linux untuk hosting website dengan performa tinggi dan keamanan terjamin.</p>
-      </div>
-    </div>
-    <div class="project-card">
-      <div class="project-image" style="background: linear-gradient(135deg, #ec4899, #f59e0b);">
-        <i class="fas fa-network-wired"></i>
-        <div class="project-overlay">
-          <a href="#"><i class="fas fa-link"></i></a>
-        </div>
-      </div>
-      <div class="project-info">
-        <div class="project-tags">
-          <span>MikroTik</span><span>Routing</span><span>LAN/WAN</span>
-        </div>
-        <h3>Infrastruktur Jaringan Kantor</h3>
-        <p>Perancangan dan implementasi jaringan lokal (LAN) dengan manajemen bandwidth dan firewall menggunakan MikroTik.</p>
-      </div>
-    </div>
-    <div class="project-card">
-      <div class="project-image" style="background: linear-gradient(135deg, #10b981, #3b82f6);">
-        <i class="fas fa-laptop-code"></i>
-        <div class="project-overlay">
-          <a href="#"><i class="fas fa-link"></i></a>
-        </div>
-      </div>
-      <div class="project-info">
-        <div class="project-tags">
-          <span>HTML/CSS</span><span>JavaScript</span><span>PHP</span>
-        </div>
-        <h3>Pengembangan Website Portfolio</h3>
-        <p>Desain dan pengembangan website responsif dengan backend yang terintegrasi dan database yang terstruktur.</p>
-      </div>
-    </div>
-  </div>
-</section>
+<!-- Bagian Proyek DIHAPUS TOTAL -->
 
 <!-- Contact (Tanpa Form) -->
 <section id="contact" class="reveal">
