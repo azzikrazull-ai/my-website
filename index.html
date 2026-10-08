@@ -272,27 +272,6 @@
     margin-bottom: 20px;
   }
   
-  .info-grid {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 15px;
-    margin: 25px 0;
-  }
-  
-  .info-item {
-    padding: 15px;
-    background: var(--card-bg);
-    border-radius: 10px;
-    border: 1px solid rgba(255,255,255,0.05);
-  }
-  
-  .info-item strong {
-    color: var(--primary);
-    display: block;
-    margin-bottom: 5px;
-    font-size: 0.9rem;
-  }
-  
   .stats {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
@@ -645,26 +624,8 @@
       <h3>Server, Network & Web Developer</h3>
       <p>Saya adalah seorang profesional IT dengan fokus utama pada pengelolaan server, konfigurasi jaringan, dan pengembangan website. Saya memiliki pengalaman dalam membangun dan memelihara infrastruktur digital yang aman, efisien, dan scalable.</p>
       <p>Saya selalu bersemangat untuk mempelajari teknologi server dan jaringan terkini, serta menciptakan solusi web yang handal untuk mendukung kebutuhan bisnis dan organisasi.</p>
-      <div class="info-grid">
-        <div class="info-item">
-          <strong>Nama Lengkap</strong>
-          Muh Riyad Azzikra Dz
-        </div>
-        <div class="info-item">
-          <strong>Email</strong>
-          azzkrazull@gmail.com
-        </div>
-        <div class="info-item">
-          <strong>Lokasi</strong>
-          Jln. Anawai
-        </div>
-        <div class="info-item">
-          <strong>Status</strong>
-          Open for Collaboration
-        </div>
-      </div>
-      <a href="#" class="btn btn-primary">
-        <i class="fas fa-download"></i> Download CV
+      <a href="#contact" class="btn btn-primary">
+        <i class="fas fa-envelope"></i> Hubungi Saya
       </a>
     </div>
     <div class="stats">
@@ -722,20 +683,6 @@
       <p>Perancangan dan pengelolaan database MySQL, PostgreSQL, dan optimasi query.</p>
       <div class="skill-bar"><div class="skill-progress" data-progress="80"></div></div>
       <div class="skill-level"><span>Advanced</span><span>80%</span></div>
-    </div>
-    <div class="skill-card">
-      <div class="skill-icon"><i class="fas fa-shield-alt"></i></div>
-      <h3>Basic Cybersecurity</h3>
-      <p>Implementasi firewall, SSL/TLS, server hardening, dan praktik keamanan jaringan.</p>
-      <div class="skill-bar"><div class="skill-progress" data-progress="75"></div></div>
-      <div class="skill-level"><span>Intermediate</span><span>75%</span></div>
-    </div>
-    <div class="skill-card">
-      <div class="skill-icon"><i class="fas fa-cloud"></i></div>
-      <h3>Cloud & Deployment</h3>
-      <p>Deployment aplikasi, manajemen cloud VPS, dan penggunaan Docker untuk containerization.</p>
-      <div class="skill-bar"><div class="skill-progress" data-progress="70"></div></div>
-      <div class="skill-level"><span>Intermediate</span><span>70%</span></div>
     </div>
   </div>
 </section>
@@ -876,7 +823,7 @@
     });
   });
   
-  // Typing effect (DIUBAH SESUAI PROFIL IT)
+  // Typing effect
   const typingTexts = ['Server Administrator', 'Network Engineer', 'Web Developer', 'IT Infrastructure Specialist'];
   let textIndex = 0, charIndex = 0, isDeleting = false;
   
