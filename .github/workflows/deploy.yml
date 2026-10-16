@@ -14,15 +14,13 @@ jobs:
       - name: Tailscale
         uses: tailscale/github-action@v2
         with:
-          oauth-client-id: ""
-          oauth-secret: ""
           authkey: ${{ secrets.TAILSCALE_AUTHKEY }}
 
       # 2. Checkout repository code
       - name: Checkout Repository
         uses: actions/checkout@v4
 
-      # 3. Deploy to Server via SSH over Tailscale VPN
+      # 3. Deploy Docker Container via SSH over Tailscale
       - name: Deploy to Server via SSH
         uses: appleboy/ssh-action@v1.0.3
         with:
@@ -30,5 +28,19 @@ jobs:
           username: ${{ secrets.SERVER_USER }}
           key: ${{ secrets.SSH_PRIVATE_KEY }}
           script: |
-            cd /var/www/my-website
-            git pull origin main
+            # 1. Pull image Nginx terbaru dari Docker Hub
+            docker pull ${{ secrets.DOCKERHUB_USERNAME }}/web-nginx:latest
+
+            # 2. Hentikan & hapus container lama jika sedang berjalan
+            docker stop website-nginx || true
+            docker rm website-nginx || true
+
+            # 3. Jalankan container baru dengan image terbaru
+            docker run -d \
+              --name website-nginx \
+              --restart always \
+              -p 80:80 \
+              ${{ secrets.DOCKERHUB_USERNAME }}/web-nginx:latest
+
+            # 4. (Opsional) Bersihkan image lama yang tidak terpakai
+            docker image prune -f
