@@ -1,0 +1,11 @@
+# Gunakan image Nginx versi Alpine yang ringan
+FROM nginx:alpine
+
+# Salin seluruh isi folder proyek ke direktori default Nginx
+COPY . /usr/share/nginx/html
+
+# Buka port 80 untuk lalu lintas web
+EXPOSE 80
+
+# Jalankan Nginx di foreground
+CMD ["nginx", "-g", "daemon off;"]
