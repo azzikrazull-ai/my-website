@@ -244,8 +244,9 @@ dialog img{width:100%;height:auto;display:block;margin-bottom:.8rem}
       </defs>
 
       <rect class="core" x="138" y="90" width="124" height="160" rx="20"/>
-      <!-- Ganti "foto.jpg" dengan file foto profil kamu -->
-      <image href="foto.jpg" x="144" y="96" width="112" height="148"
+      
+      <!-- Pastikan file "foto-riyad.jpg" ada di folder yang sama -->
+      <image href="foto-riyad.jpg" x="144" y="96" width="112" height="148"
              clip-path="url(#pf)" preserveAspectRatio="xMidYMid slice"/>
     </svg>
   </header>
@@ -315,7 +316,7 @@ const DATA = {
   jurusan: "TJKT",
   kota: "Kendari",
 
-  wa: "6287860550780",
+  wa: "6287060550780",
   ig: "05_azzikra",
   tiktok: "azzikra2205",
   email: "azzikrazull@gmail.com",
@@ -345,14 +346,17 @@ const DATA = {
 /* =========================================================
    2. ASET — ganti dengan file milikmu
    ========================================================= */
-/* Gambar sertifikat, urutannya sama dengan DATA.certs.
-   Bisa juga berupa data URI: "data:image/jpeg;base64,...."  */
+/* 
+  Saya sudah mengubah ini agar memanggil gambar dari folder yang sama.
+  Pastikan Anda sudah menyimpan screenshot sertifikat dengan nama file ini:
+  sertifikat-1.jpg, sertifikat-2.jpg, dst.
+*/
 const CERT_IMG = [
-  "img/sertifikat-1.jpg",
-  "img/sertifikat-2.jpg",
-  "img/sertifikat-3.jpg",
-  "img/sertifikat-4.jpg",
-  "img/sertifikat-5.jpg"
+  "sertifikat-1.jpg", // Red Hat OpenStack
+  "sertifikat-2.jpg", // Red Hat Ansible
+  "sertifikat-3.jpg", // Cyber Security
+  "sertifikat-4.jpg", // Belajar Linux
+  "sertifikat-5.jpg"  // Cisco Dasar
 ];
 
 /* File CV PDF yang diunduh tombol "Unduh CV" */
@@ -387,12 +391,12 @@ $("projects").innerHTML = DATA.projects
 /* Sertifikat (dengan gambar + lightbox) */
 $("certs").innerHTML = DATA.certs
   .map((c, i) => {
-    const src = CERT_IMG[i] || `img/sertifikat-${i + 1}.jpg`;
+    const src = CERT_IMG[i] || `https://placehold.co/600x400/e2e8f0/1e293b?text=Sertifikat`;
     return `
       <article class="cert">
         <button class="z" type="button" data-i="${i}"
                 aria-label="Perbesar sertifikat ${esc(c.t)}">
-          <img src="${esc(src)}" alt="Sertifikat ${esc(c.t)}" loading="lazy">
+          <img src="${esc(src)}" alt="Sertifikat ${esc(c.t)}" loading="lazy" onerror="this.src='https://placehold.co/600x400/e2e8f0/1e293b?text=Gambar+Tidak+Ditemukan'">
         </button>
         <h3>${esc(c.t)}</h3>
         <p>${esc(c.d)}</p>
@@ -428,7 +432,7 @@ $("certs").addEventListener("click", (e) => {
   if (!btn) return;
 
   const i = Number(btn.dataset.i);
-  lbi.src = CERT_IMG[i] || `img/sertifikat-${i + 1}.jpg`;
+  lbi.src = CERT_IMG[i] || `https://placehold.co/600x400/e2e8f0/1e293b?text=Sertifikat`;
   lbi.alt = "Sertifikat " + DATA.certs[i].t;
   lb.showModal();
 });
