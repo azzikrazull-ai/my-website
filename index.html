@@ -143,11 +143,15 @@ section>.wrap>h2{
 .cert p{margin:0;color:var(--muted);font-size:.95rem}
 .cert a{color:var(--blue);font-weight:600}
 
-.cert img{
-  width:100%;height:auto;display:block;
-  border-radius:6px;border:1px solid var(--line);
-  margin-bottom:.8rem;
-  background-color: #f8fafc; /* Warna latar jika gambar transparan */
+/* GAYA UNTUK PREVIEW PDF */
+.cert .pdf-preview {
+  width: 100%;
+  height: 220px;
+  border: 1px solid var(--line);
+  border-radius: 6px;
+  margin-bottom: .8rem;
+  background-color: #f8fafc;
+  pointer-events: none; /* Supaya klik tembus ke tombol */
 }
 .cert button.z{
   all:unset;cursor:zoom-in;display:block;width:100%;
@@ -174,11 +178,18 @@ footer{
 /* ===================== LIGHTBOX ===================== */
 dialog{
   max-width:min(92vw,900px);
+  width: 100%;
   border:0;border-radius:var(--radius);padding:1rem;
   background:var(--surface);color:var(--ink);
 }
 dialog::backdrop{background:rgba(0,0,0,.65)}
-dialog img{width:100%;height:auto;display:block;margin-bottom:.8rem}
+dialog iframe {
+  width: 100%;
+  height: 70vh;
+  border: none;
+  margin-bottom:.8rem;
+  border-radius: 6px;
+}
 
 /* ===================== CV KHUSUS CETAK / SIMPAN PDF ===================== */
 #cv{display:none}
@@ -246,7 +257,7 @@ dialog img{width:100%;height:auto;display:block;margin-bottom:.8rem}
 
       <rect class="core" x="138" y="90" width="124" height="160" rx="20"/>
       
-      <!-- FOTO DISESUAIKAN DENGAN NAMA DI GITHUB: riyad.jpg -->
+      <!-- FOTO: Menggunakan nama file dari GitHub Anda (riyad.jpg) -->
       <image href="riyad.jpg" x="144" y="96" width="112" height="148"
              clip-path="url(#pf)" preserveAspectRatio="xMidYMid slice"/>
     </svg>
@@ -300,7 +311,8 @@ dialog img{width:100%;height:auto;display:block;margin-bottom:.8rem}
 
 <!-- Lightbox sertifikat -->
 <dialog id="lb">
-  <img id="lbi" alt="Sertifikat diperbesar">
+  <!-- Menggunakan iframe agar PDF bisa dibuka besar -->
+  <iframe id="lbi" title="Sertifikat diperbesar"></iframe>
   <button class="btn main" id="lbx" type="button">Tutup</button>
 </dialog>
 
@@ -309,7 +321,7 @@ dialog img{width:100%;height:auto;display:block;margin-bottom:.8rem}
 
 <script>
 /* =========================================================
-   1. DATA — ubah isinya di sini saja
+   1. DATA
    ========================================================= */
 const DATA = {
   nama: "Muh Riyad Azzikra Dz",
@@ -345,17 +357,16 @@ const DATA = {
 };
 
 /* =========================================================
-   2. ASET — DISESUAIKAN DENGAN NAMA FILE DI GITHUB ANDA
+   2. ASET PDF (Sesuai Nama File di GitHub Anda)
    ========================================================= */
-const CERT_IMG = [
-  "CourseAttendance20260406-31-3vj5lq.jpg", // JPG, bukan PDF
-  "CourseAttendance20260406-31-c47na1.jpg", // JPG, bukan PDF
-  "Muhammad-Riyad-Azzikra-Dzulhijja-Belajar-Cyber-Security-dari-Nol-Sertifikat-Cyber-Security-Dasar-LMS-ID-Networkers.jpg",
-  "muhammad-riyad-azzikra-zulhijja-Belajar-Linux-dari-Nol-Sertifikat-Belajar-Linux-dari-Nol-LMS-ID-Networkers.jpg",
-  "muhammad-riyad-azzikra-zulhijja-Cisco-Dasar-Sertifikat-Cisco-Dasar-LMS-ID-Networkers.jpg"
+const CERT_FILES = [
+  "CourseAttendance20260406-31-3vj5lq.pdf",
+  "CourseAttendance20260406-31-c47na1.pdf",
+  "Muhammad-Riyad-Azzikra-Dzulhijja-Belajar-Cyber-Security-dari-Nol-Sertifikat-Cyber-Security-Dasar-LMS-ID-Networkers.pdf",
+  "muhammad-riyad-azzikra-zulhijja-Belajar-Linux-dari-Nol-Sertifikat-Belajar-Linux-dari-Nol-LMS-ID-Networkers.pdf",
+  "muhammad-riyad-azzikra-zulhijja-Cisco-Dasar-Sertifikat-Cisco-Dasar-LMS-ID-Networkers.pdf"
 ];
 
-/* File CV PDF yang diunduh tombol "Unduh CV" */
 const CV_FILE = "cv.pdf";
 
 /* =========================================================
@@ -370,12 +381,10 @@ const esc = (s) => String(s).replace(/[&<>"']/g, (c) => ({
    4. RENDER KONTEN
    ========================================================= */
 
-/* Keahlian */
 $("skills").innerHTML = DATA.skills
   .map((s) => `<span class="chip">${esc(s)}</span>`)
   .join("");
 
-/* Proyek & prestasi */
 $("projects").innerHTML = DATA.projects
   .map((p) => `
     <article class="cert${p.pr ? " pr" : ""}">
@@ -384,15 +393,18 @@ $("projects").innerHTML = DATA.projects
     </article>`)
   .join("");
 
-/* Sertifikat (dengan gambar + lightbox) */
+/* Render Sertifikat Menggunakan Object/Iframe PDF */
 $("certs").innerHTML = DATA.certs
   .map((c, i) => {
-    const src = CERT_IMG[i] || `https://placehold.co/600x400/e2e8f0/1e293b?text=Sertifikat`;
+    const src = CERT_FILES[i];
     return `
       <article class="cert">
-        <button class="z" type="button" data-i="${i}"
+        <button class="z" type="button" data-src="${esc(src)}"
                 aria-label="Perbesar sertifikat ${esc(c.t)}">
-          <img src="${esc(src)}" alt="Sertifikat ${esc(c.t)}" loading="lazy" onerror="this.src='https://placehold.co/600x400/e2e8f0/1e293b?text=Gambar+Belum+Di-upload'">
+          <!-- Menampilkan PDF langsung di card -->
+          <object data="${esc(src)}" type="application/pdf" class="pdf-preview">
+            <p style="padding: 10px; font-size: 0.8rem;">Preview tidak tersedia. <a href="${esc(src)}" target="_blank">Buka File PDF</a></p>
+          </object>
         </button>
         <h3>${esc(c.t)}</h3>
         <p>${esc(c.d)}</p>
@@ -401,7 +413,6 @@ $("certs").innerHTML = DATA.certs
   })
   .join("");
 
-/* Kontak */
 const CONTACTS = [
   ["WhatsApp", "+" + DATA.wa, "https://wa.me/" + DATA.wa],
   ["TikTok", "@" + DATA.tiktok, "https://www.tiktok.com/@" + DATA.tiktok],
@@ -418,7 +429,7 @@ $("contacts").innerHTML = CONTACTS
   .join("");
 
 /* =========================================================
-   5. LIGHTBOX SERTIFIKAT
+   5. LIGHTBOX SERTIFIKAT (MEMBUKA PDF)
    ========================================================= */
 const lb = $("lb");
 const lbi = $("lbi");
@@ -427,15 +438,13 @@ $("certs").addEventListener("click", (e) => {
   const btn = e.target.closest("button.z");
   if (!btn) return;
 
-  const i = Number(btn.dataset.i);
-  lbi.src = CERT_IMG[i] || `https://placehold.co/600x400/e2e8f0/1e293b?text=Sertifikat`;
-  lbi.alt = "Sertifikat " + DATA.certs[i].t;
+  const src = btn.dataset.src;
+  lbi.src = src;
   lb.showModal();
 });
 
 $("lbx").addEventListener("click", () => lb.close());
 
-/* klik area gelap di luar dialog = tutup */
 lb.addEventListener("click", (e) => {
   if (e.target === lb) lb.close();
 });
@@ -453,7 +462,7 @@ $("dl").addEventListener("click", () => {
 });
 
 /* =========================================================
-   7. CV VERSI CETAK (Ctrl/Cmd + P → Simpan sebagai PDF)
+   7. CV VERSI CETAK
    ========================================================= */
 $("cv").innerHTML = `
   <h1>${esc(DATA.nama)}</h1>
