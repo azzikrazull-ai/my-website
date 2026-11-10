@@ -147,6 +147,7 @@ section>.wrap>h2{
   width:100%;height:auto;display:block;
   border-radius:6px;border:1px solid var(--line);
   margin-bottom:.8rem;
+  background-color: #f8fafc; /* Warna latar jika gambar transparan */
 }
 .cert button.z{
   all:unset;cursor:zoom-in;display:block;width:100%;
@@ -245,8 +246,8 @@ dialog img{width:100%;height:auto;display:block;margin-bottom:.8rem}
 
       <rect class="core" x="138" y="90" width="124" height="160" rx="20"/>
       
-      <!-- Pastikan file "foto-riyad.jpg" ada di folder yang sama -->
-      <image href="foto-riyad.jpg" x="144" y="96" width="112" height="148"
+      <!-- FOTO DISESUAIKAN DENGAN NAMA DI GITHUB: riyad.jpg -->
+      <image href="riyad.jpg" x="144" y="96" width="112" height="148"
              clip-path="url(#pf)" preserveAspectRatio="xMidYMid slice"/>
     </svg>
   </header>
@@ -344,19 +345,14 @@ const DATA = {
 };
 
 /* =========================================================
-   2. ASET — ganti dengan file milikmu
+   2. ASET — DISESUAIKAN DENGAN NAMA FILE DI GITHUB ANDA
    ========================================================= */
-/* 
-  Saya sudah mengubah ini agar memanggil gambar dari folder yang sama.
-  Pastikan Anda sudah menyimpan screenshot sertifikat dengan nama file ini:
-  sertifikat-1.jpg, sertifikat-2.jpg, dst.
-*/
 const CERT_IMG = [
-  "sertifikat-1.jpg", // Red Hat OpenStack
-  "sertifikat-2.jpg", // Red Hat Ansible
-  "sertifikat-3.jpg", // Cyber Security
-  "sertifikat-4.jpg", // Belajar Linux
-  "sertifikat-5.jpg"  // Cisco Dasar
+  "CourseAttendance20260406-31-3vj5lq.jpg", // JPG, bukan PDF
+  "CourseAttendance20260406-31-c47na1.jpg", // JPG, bukan PDF
+  "Muhammad-Riyad-Azzikra-Dzulhijja-Belajar-Cyber-Security-dari-Nol-Sertifikat-Cyber-Security-Dasar-LMS-ID-Networkers.jpg",
+  "muhammad-riyad-azzikra-zulhijja-Belajar-Linux-dari-Nol-Sertifikat-Belajar-Linux-dari-Nol-LMS-ID-Networkers.jpg",
+  "muhammad-riyad-azzikra-zulhijja-Cisco-Dasar-Sertifikat-Cisco-Dasar-LMS-ID-Networkers.jpg"
 ];
 
 /* File CV PDF yang diunduh tombol "Unduh CV" */
@@ -396,7 +392,7 @@ $("certs").innerHTML = DATA.certs
       <article class="cert">
         <button class="z" type="button" data-i="${i}"
                 aria-label="Perbesar sertifikat ${esc(c.t)}">
-          <img src="${esc(src)}" alt="Sertifikat ${esc(c.t)}" loading="lazy" onerror="this.src='https://placehold.co/600x400/e2e8f0/1e293b?text=Gambar+Tidak+Ditemukan'">
+          <img src="${esc(src)}" alt="Sertifikat ${esc(c.t)}" loading="lazy" onerror="this.src='https://placehold.co/600x400/e2e8f0/1e293b?text=Gambar+Belum+Di-upload'">
         </button>
         <h3>${esc(c.t)}</h3>
         <p>${esc(c.d)}</p>
