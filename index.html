@@ -81,15 +81,16 @@ nav a:hover{color:var(--blue)}
 
 .btns{display:flex;gap:.8rem;flex-wrap:wrap}
 .btn{
-  display:inline-flex;align-items:center;gap:.5rem;
+  display:inline-flex;align-items:center;justify-content:center;gap:.5rem;
   padding:.8rem 1.3rem;border-radius:10px;
   font:600 1rem Figtree,sans-serif;
   text-decoration:none;cursor:pointer;
   border:2px solid var(--blue);
+  background:transparent;color:var(--blue);
 }
 .btn.main{background:var(--blue);color:var(--on-accent)}
-.btn.alt{background:transparent;color:var(--blue)}
-.btn:hover{border-color:var(--orange)}
+.btn:hover{border-color:var(--orange);color:var(--orange)}
+.btn.main:hover{background:var(--orange);color:#fff}
 
 /* ===================== DIAGRAM TOPOLOGI ===================== */
 .topo{width:100%;height:auto}
@@ -137,6 +138,8 @@ section>.wrap>h2{
   background:var(--surface);border:1.5px solid var(--line);
   border-left:6px solid var(--orange);border-radius:8px;
   padding:1.1rem 1.2rem;
+  display: flex;
+  flex-direction: column;
 }
 .cert.pr{border-left-color:var(--blue)}
 .cert h3{font-size:1.15rem;margin-bottom:.4rem}
@@ -155,6 +158,15 @@ section>.wrap>h2{
 }
 .cert button.z{
   all:unset;cursor:zoom-in;display:block;width:100%;
+}
+
+/* Fitur Sembunyikan/Tampilkan Sertifikat */
+.cert.hidden-cert {
+  display: none;
+}
+.toggle-wrapper {
+  text-align: center;
+  margin-top: 2rem;
 }
 
 .contacts{
@@ -233,7 +245,7 @@ dialog iframe {
       <p>Pelajar TJKT di SMKN 3 Kendari yang berminat pada cloud computing, administrasi server Linux, dan jaringan komputer. Juara 2 LKS bidang Cloud Computing.</p>
       <div class="btns">
         <button class="btn main" id="dl" type="button">Unduh CV</button>
-        <a class="btn alt" href="#kontak">Hubungi saya</a>
+        <a class="btn" href="#kontak">Hubungi saya</a>
       </div>
     </div>
 
@@ -297,6 +309,11 @@ dialog iframe {
   <div class="wrap">
     <h2>Sertifikat</h2>
     <div class="certs" id="certs"></div>
+    
+    <!-- Tombol Lihat Lebih Banyak -->
+    <div class="toggle-wrapper" id="toggle-wrapper" style="display: none;">
+      <button class="btn" id="toggle-certs" type="button">Lihat Lebih Banyak</button>
+    </div>
   </div>
 </section>
 
@@ -311,7 +328,6 @@ dialog iframe {
 
 <!-- Lightbox sertifikat -->
 <dialog id="lb">
-  <!-- Menggunakan iframe agar PDF bisa dibuka besar -->
   <iframe id="lbi" title="Sertifikat diperbesar"></iframe>
   <button class="btn main" id="lbx" type="button">Tutup</button>
 </dialog>
@@ -393,15 +409,20 @@ $("projects").innerHTML = DATA.projects
     </article>`)
   .join("");
 
-/* Render Sertifikat Menggunakan Object/Iframe PDF */
+/* Render Sertifikat + Logika Sembunyikan */
+const INITIAL_CERT_LIMIT = 3; // Jumlah sertifikat yang tampil pertama kali
+let certsExpanded = false;
+
 $("certs").innerHTML = DATA.certs
   .map((c, i) => {
     const src = CERT_FILES[i];
+    // Menambahkan class 'hidden-cert' untuk sertifikat ke-4 dan seterusnya
+    const hiddenClass = i >= INITIAL_CERT_LIMIT ? " hidden-cert" : "";
+    
     return `
-      <article class="cert">
+      <article class="cert${hiddenClass}" id="cert-item-${i}">
         <button class="z" type="button" data-src="${esc(src)}"
                 aria-label="Perbesar sertifikat ${esc(c.t)}">
-          <!-- Menampilkan PDF langsung di card -->
           <object data="${esc(src)}" type="application/pdf" class="pdf-preview">
             <p style="padding: 10px; font-size: 0.8rem;">Preview tidak tersedia. <a href="${esc(src)}" target="_blank">Buka File PDF</a></p>
           </object>
@@ -412,6 +433,32 @@ $("certs").innerHTML = DATA.certs
       </article>`;
   })
   .join("");
+
+// Tampilkan tombol "Lihat Lebih Banyak" jika sertifikat > batas awal
+if (DATA.certs.length > INITIAL_CERT_LIMIT) {
+  $("toggle-wrapper").style.display = "block";
+}
+
+// Event Listener untuk tombol Lihat Lebih Banyak
+$("toggle-certs").addEventListener("click", function() {
+  certsExpanded = !certsExpanded;
+  
+  // Looping untuk menyembunyikan/menampilkan
+  DATA.certs.forEach((_, i) => {
+    if (i >= INITIAL_CERT_LIMIT) {
+      const el = $(`cert-item-${i}`);
+      if (certsExpanded) {
+        el.classList.remove("hidden-cert");
+      } else {
+        el.classList.add("hidden-cert");
+      }
+    }
+  });
+
+  // Ubah teks tombol
+  this.textContent = certsExpanded ? "Lihat Lebih Sedikit" : "Lihat Lebih Banyak";
+});
+
 
 const CONTACTS = [
   ["WhatsApp", "+" + DATA.wa, "https://wa.me/" + DATA.wa],
