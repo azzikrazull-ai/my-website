@@ -26,3 +26,4 @@ jobs:
           script: |
             cd /var/www/my-website
             git pull origin main
+            docker compose up -d --build
