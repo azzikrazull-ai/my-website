@@ -3,31 +3,95 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<title>Muh Riyad Azzikra Dz – Portofolio TJKT</title>
+<title>Muh Riyad Azzikra Dz — Portofolio TJKT</title>
+<meta name="description" content="Portofolio Muh Riyad Azzikra Dz — pelajar TJKT SMKN 3 Kendari: cloud computing, administrasi server Linux, dan jaringan komputer.">
+<meta name="theme-color" content="#f1f5f8" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#0e1a23" media="(prefers-color-scheme: dark)">
+
 <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@500;700;800&family=Figtree:wght@400;500;600&display=swap" rel="stylesheet">
+
 <style>
-:root{--bg:#f1f5f8;--surface:#fff;--ink:#12212c;--muted:#51636f;--line:#cfdae2;--blue:#1c5bb8;--orange:#d9651a;--on-accent:#fff}
-@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#0e1a23;--surface:#16262f;--ink:#e8eff4;--muted:#9bb0bd;--line:#2b3f4b;--blue:#6aa5f2;--orange:#f08a45;--on-accent:#0e1a23}}
-:root[data-theme="dark"]{--bg:#0e1a23;--surface:#16262f;--ink:#e8eff4;--muted:#9bb0bd;--line:#2b3f4b;--blue:#6aa5f2;--orange:#f08a45;--on-accent:#0e1a23}
-html{scroll-padding-top:env(safe-area-inset-top,0px);scroll-behavior:smooth}
+/* ===================== TEMA & DASAR ===================== */
+:root{
+  --bg:#f1f5f8;
+  --surface:#fff;
+  --ink:#12212c;
+  --muted:#51636f;
+  --line:#cfdae2;
+  --blue:#1c5bb8;
+  --orange:#d9651a;
+  --on-accent:#fff;
+  --radius:12px;
+  color-scheme:light dark;
+}
+@media (prefers-color-scheme:dark){
+  :root:not([data-theme="light"]){
+    --bg:#0e1a23;--surface:#16262f;--ink:#e8eff4;--muted:#9bb0bd;
+    --line:#2b3f4b;--blue:#6aa5f2;--orange:#f08a45;--on-accent:#0e1a23;
+  }
+}
+:root[data-theme="dark"]{
+  --bg:#0e1a23;--surface:#16262f;--ink:#e8eff4;--muted:#9bb0bd;
+  --line:#2b3f4b;--blue:#6aa5f2;--orange:#f08a45;--on-accent:#0e1a23;
+}
+
+html{
+  scroll-behavior:smooth;
+  scroll-padding-top:1rem;
+}
 *,*::before,*::after{box-sizing:border-box}
-body{margin:0;background:var(--bg);color:var(--ink);font:400 1.05rem/1.65 Figtree,system-ui,sans-serif;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
-h1,h2,h3{font-family:'Bricolage Grotesque',Figtree,sans-serif;line-height:1.1;margin:0}
+
+body{
+  margin:0;
+  padding-top:env(safe-area-inset-top,0px);
+  padding-bottom:env(safe-area-inset-bottom,0px);
+  background:var(--bg);
+  color:var(--ink);
+  font:400 1.05rem/1.65 Figtree,system-ui,sans-serif;
+  -webkit-text-size-adjust:100%;
+}
+
+h1,h2,h3{
+  font-family:"Bricolage Grotesque",Figtree,sans-serif;
+  line-height:1.1;
+  margin:0;
+}
 a{color:inherit}
 :focus-visible{outline:3px solid var(--orange);outline-offset:3px}
+
 .wrap{max-width:1040px;margin:0 auto;padding:0 1.25rem}
-nav{display:flex;gap:1.25rem;justify-content:flex-end;padding:1rem 0;flex-wrap:wrap}
+
+/* ===================== NAVIGASI ===================== */
+nav{
+  display:flex;flex-wrap:wrap;gap:1.25rem;
+  justify-content:flex-end;padding:1rem 0;
+}
 nav a{text-decoration:none;color:var(--muted);font-weight:500}
 nav a:hover{color:var(--blue)}
-.hero{display:grid;grid-template-columns:1.1fr 1fr;gap:2rem;align-items:center;padding:2rem 0 4rem}
+
+/* ===================== HERO ===================== */
+.hero{
+  display:grid;grid-template-columns:1.1fr 1fr;
+  gap:2rem;align-items:center;padding:2rem 0 4rem;
+}
 .hero h1{font-size:clamp(2.4rem,6vw,4.2rem);font-weight:800;letter-spacing:-.02em}
 .hero p{max-width:46ch;color:var(--muted);margin:1.2rem 0 1.8rem}
+
 .btns{display:flex;gap:.8rem;flex-wrap:wrap}
-.btn{display:inline-flex;align-items:center;gap:.5rem;padding:.8rem 1.3rem;border-radius:10px;font-weight:600;text-decoration:none;border:2px solid var(--blue);cursor:pointer;font:600 1rem Figtree,sans-serif;background:transparent}
+.btn{
+  display:inline-flex;align-items:center;gap:.5rem;
+  padding:.8rem 1.3rem;border-radius:10px;
+  font:600 1rem Figtree,sans-serif;
+  text-decoration:none;cursor:pointer;
+  border:2px solid var(--blue);
+}
 .btn.main{background:var(--blue);color:var(--on-accent)}
 .btn.alt{background:transparent;color:var(--blue)}
 .btn:hover{border-color:var(--orange)}
+
+/* ===================== DIAGRAM TOPOLOGI ===================== */
 .topo{width:100%;height:auto}
 .topo line{stroke:var(--line);stroke-width:3}
 .topo .live{stroke:var(--orange);stroke-dasharray:8 8;animation:flow 1.2s linear infinite}
@@ -36,178 +100,387 @@ nav a:hover{color:var(--blue)}
 .topo text{fill:var(--ink);font:600 13px Figtree,sans-serif;text-anchor:middle}
 .topo .core-t{fill:var(--on-accent);font-size:15px}
 @keyframes flow{to{stroke-dashoffset:-32}}
-@media (prefers-reduced-motion:reduce){.topo .live{animation:none}html{scroll-behavior:auto}}
+
+@media (prefers-reduced-motion:reduce){
+  .topo .live{animation:none}
+  html{scroll-behavior:auto}
+}
+
+/* ===================== SECTION ===================== */
 section{padding:3rem 0;border-top:2px solid var(--line)}
-section>.wrap>h2{font-size:clamp(1.8rem,4vw,2.5rem);margin-bottom:1.5rem}
+section>.wrap>h2{
+  font-size:clamp(1.8rem,4vw,2.5rem);
+  margin-bottom:1.5rem;
+}
+
 .about{display:grid;grid-template-columns:1fr 1fr;gap:2rem}
+
 .facts{margin:0;padding:0;list-style:none;display:grid;gap:.6rem}
-.facts li{display:flex;justify-content:space-between;gap:1rem;padding:.6rem 0;border-bottom:1px solid var(--line)}
+.facts li{
+  display:flex;justify-content:space-between;gap:1rem;
+  padding:.6rem 0;border-bottom:1px solid var(--line);
+}
 .facts span{color:var(--muted)}
 .facts b{text-align:right}
+
 .chips{display:flex;flex-wrap:wrap;gap:.6rem}
-.chip{padding:.45rem .9rem;background:var(--surface);border:1.5px solid var(--line);border-radius:999px;font-weight:500}
-.certs{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:1rem}
-/* Sertifikat: tampil 4 + tombol lihat lebih banyak */
-.cert.hide{display:none}
-.cert.reveal{animation:fadeUp .35s ease both}
-@keyframes fadeUp{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:none}}
-.certs-more{display:flex;justify-content:center;margin-top:1.6rem}
-#moreCerts{gap:.5rem}
-#moreCerts .chev{display:inline-block;transition:transform .25s ease}
-#moreCerts[aria-expanded="true"] .chev{transform:rotate(180deg)}
-@media (prefers-reduced-motion:reduce){.cert.reveal{animation:none}#moreCerts .chev{transition:none}}
-.cert{background:var(--surface);border:1.5px solid var(--line);border-left:6px solid var(--orange);border-radius:8px;padding:1.1rem 1.2rem}
+.chip{
+  padding:.45rem .9rem;background:var(--surface);
+  border:1.5px solid var(--line);border-radius:999px;font-weight:500;
+}
+
+.certs{
+  display:grid;gap:1rem;
+  grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+}
+.cert{
+  background:var(--surface);border:1.5px solid var(--line);
+  border-left:6px solid var(--orange);border-radius:8px;
+  padding:1.1rem 1.2rem;
+}
+.cert.pr{border-left-color:var(--blue)}
 .cert h3{font-size:1.15rem;margin-bottom:.4rem}
 .cert p{margin:0;color:var(--muted);font-size:.95rem}
-.contacts{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:1rem}
-.contact{display:block;background:var(--surface);border:1.5px solid var(--line);border-radius:12px;padding:1.1rem 1.2rem;text-decoration:none}
+.cert a{color:var(--blue);font-weight:600}
+
+.cert img{
+  width:100%;height:auto;display:block;
+  border-radius:6px;border:1px solid var(--line);
+  margin-bottom:.8rem;
+}
+.cert button.z{
+  all:unset;cursor:zoom-in;display:block;width:100%;
+}
+
+.contacts{
+  display:grid;gap:1rem;
+  grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+}
+.contact{
+  display:block;background:var(--surface);
+  border:1.5px solid var(--line);border-radius:var(--radius);
+  padding:1.1rem 1.2rem;text-decoration:none;
+}
 .contact:hover{border-color:var(--blue)}
 .contact small{display:block;color:var(--muted)}
 .contact strong{font-size:1.05rem;overflow-wrap:anywhere}
-footer{padding:2rem 0;color:var(--muted);text-align:center;border-top:2px solid var(--line)}
-@media (max-width:760px){.hero,.about{grid-template-columns:1fr}nav{justify-content:flex-start}}
 
-.cert img{width:100%;height:auto;display:block;border-radius:6px;border:1px solid var(--line);margin-bottom:.8rem}
-.cert button.z{all:unset;cursor:zoom-in;display:block;width:100%}
-.cert a{color:var(--blue);font-weight:600}
-.cert.pr{border-left-color:var(--blue)}
-dialog{max-width:min(92vw,900px);border:0;border-radius:12px;padding:1rem;background:var(--surface);color:var(--ink)}
-dialog::backdrop{background:rgba(0,0,0,.65)}
-dialog img{width:100%;height:auto;display:block;margin-bottom:.8rem}
-</style>
-</head>
-<body>
-<div class="wrap">
-<nav aria-label="Menu utama"><a href="#tentang">Tentang</a><a href="#keahlian">Keahlian</a><a href="#proyek">Proyek</a><a href="#sertifikat">Sertifikat</a><a href="#kontak">Kontak</a></nav>
-
-<header class="hero">
- <div>
-  <h1>Muh Riyad Azzikra Dz</h1>
-  <p>Pelajar TJKT di SMKN 3 Kendari yang berminat pada cloud computing, administrasi server Linux, dan jaringan komputer. Juara 2 LKS bidang Cloud Computing.</p>
-  <div class="btns">
-   <button class="btn main" id="dl" type="button">Unduh CV</button>
-   <a class="btn alt" href="#kontak">Hubungi saya</a>
-  </div>
- </div>
- <svg class="topo" viewBox="0 0 400 340" role="img" aria-label="Diagram jaringan dengan foto Riyad di tengah, terhubung ke keahlian, sertifikat, dan kontak">
-  <line class="live" x1="200" y1="170" x2="70" y2="60"/><line class="live" x1="200" y1="170" x2="330" y2="60"/>
-  <line class="live" x1="200" y1="170" x2="70" y2="280"/><line class="live" x1="200" y1="170" x2="330" y2="280"/>
-  <circle class="nd" cx="70" cy="60" r="34"/><text x="70" y="65">Router</text>
-  <circle class="nd" cx="330" cy="60" r="34"/><text x="330" y="65">Switch</text>
-  <circle class="nd" cx="70" cy="280" r="34"/><text x="70" y="285">Server</text>
-  <circle class="nd" cx="330" cy="280" r="34"/><text x="330" y="285">Klien</text>
-  <defs><clipPath id="pf"><rect x="144" y="96" width="112" height="148" rx="14"/></clipPath></defs><rect class="core" x="138" y="90" width="124" height="160" rx="20"/><image href="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wBDAAYEBAUEBAYFBQUGBgYHCQ4JCQgICRINDQoOFRIWFhUSFBQXGiEcFxgfGRQUHScdHyIjJSUlFhwpLCgkKyEkJST/2wBDAQYGBgkICREJCREkGBQYJCQkJCQkJCQkJCQkJCQkJCQkJCQkJCQkJCQkJCQkJCQkJCQkJCQkJCQkJCQkJCQkJCT/wAARCAEsASwDASIAAhEBAxEB/8QAHwAAAQUBAQEBAQEAAAAAAAAAAAECAwQFBgcICQoL/8QAtRAAAgEDAwIEAwUFBAQAAAF9AQIDAAQRBRIhMUEGE1FhByJxFDKBkaEII0KxwRVS0fAkM2JyggkKFhcYGRolJicoKSo0NTY3ODk6Q0RFRkdISUpTVFVWV1hZWmNkZWZnaGlqc3R1dnd4eXqDhIWGh4iJipKTlJWWl5iZmqKjpKWmp6ipqrKztLW2t7i5usLDxMXGx8jJytLT1NXW19jZ2uHi4+Tl5ufo6erx8vP09fb3+Pn6/8QAHwEAAwEBAQEBAQEBAQAAAAAAAAECAwQFBgcICQoL/8QAtREAAgECBAQDBAcFBAQAAQJ3AAECAxEEBSExBhJBUQdhcRMiMoEIFEKRobHBCSMzUvAVYnLRChYkNOEl8RcYGRomJygpKjU2Nzg5OkNERUZHSElKU1RVVldYWVpjZGVmZ2hpanN0dXZ3eHl6goOEhYaHiImKkpOUlZaXmJmaoqOkpaanqKmqsrO0tba3uLm6wsPExcbHyMnK0tPU1dbX2Nna4uPk5ebn6Onq8vP09fb3+Pn6/9oADAMBAAIRAxEAPwDzilpO9GM1+7H5wBNHajFHSgAzSmkpe1AB2pKKXFIBKWjFFACYzRilxRigLiYxS0tJQAmaTFOxRigBuTS5pcU0jFAxTik60lKTQMMYoPNJz6U8DigQylApCOaKBi0lFFIAoooxTAMUuOKBxRnJoEJ0ozSkUUDEopTSUAFJS0UwEpvFOPSmZpMaJyKAMUtJmmQBoozRQAUcUYooATmilJpOTQAuaWkxRQAUUYpaBCU2WZIIy7kADuTSsQMk9AK53VNQM9w0Sn92hwDjgn/P9a87MsfHB0ud79DsweEeInyrYs3eveWu5FAUnjcDuf6L6e5Iql/wkl/vwLeIgdRu5/PpWMbxw8kxk5Uck/XgCn6esk0ZkLfKRknpxXw1biCvKV1Nr0t/X9dT6WnldJK3KmbcOv3MoLSlbbHHzrx+dSDxCY+Wkt5l9UBB/wAK52e5iuJGDSERQ/5/z3quWe6YqD5S+/WsY8R4mPwv5t/pt+Bo8poPdf1+Z2Nv4ksZfvuUPo1aUNxDcruhcOPbtXnUlouPLZg5H90Z/On2s9xZyBoIpEK/xocE+2K9LC8W1U0sRFNeRx18jg9aTaPRTRXM2ni8LtW7ilGeN4Wt201K0vVDQTo/sDyK+swea4XFaUpq/bqeHXwVah8cdO5YNFLSGvROUMUUZooAUdaXgim0uaBBigCgcmlIxQAGkzRmigYmaKXApMcUAFFFGKYBTcU7ijj1qWwH0YozRmqJCgNSHrSjigBaTFGaOtABRRRigA5paSiiwC0mc5pJJVhRnc/Koyazxqis2BsXPIUt836Vz1sTTpfxHY1pUJ1PhVyxfS+XC/PVf1rjzMvmNG54+YBj+ddJd3MU8LQl1UsOCfXtzXF6pP5b7RwBxXw3FGJVXklTleJ9Lk1F01JTVmVLhi5WJztBb5j7Cp7jVPLgEcQ2lhnH90dh+HX61RuJN0uTzjrUDMWcsa+MbPdJTOyoEXjnJPvT4Jtp4BdvQ9Kq5JPNKM9BSuB0VteqIgJJFLdgi0l0zOgYx+WfWRsE/gBWPbu6uAsqKf7xPStOO0tXj8ySX7RKe5BwKu9xlIylD8siknscipYJ5rdhLFlXz/CeKguYQrHDp/KmQyGI8McHjrTjJxalF2Ymk1ZncaH4nivgILoiKfsSeH/+vW8RXlqkBgwJV85DD1rttB19J4UiuXVZRwPRjX3+Q8Q+2/cYp+90ff18z5nM8r5P3tFadUbmKOlLncMjpSV9ieAGM0uMUtJ1oATpSnpQTSGgBcUmeaUGk70ALRk0tJ1NDQhKM0YpKBhRR1pmKGNE+KKM0YqiBCOaTmlopDAUooxS0CEoooFMQtNZhGCWzgDJp1ZniC9NjYM6kB2+Uf1Nc2KrxoUpVZbJGtCk6s1BdTG1rWzLJ5YchO0anr7k1UhuWAJWJUGOw5P41StIg0hmlJZnOQPWr00qbNoK5btnJ/SvynF5pVr1HUb3PuKGDhSiopGdf6pIAQoYE9eo/wDrVkz3BnGW+9jB9/erV9MqSsqkuR1PRR9AKz2YscmvMnUctzrSS2Fc5dsdDTcZ6VZt9OnueVXqeM961bfw9cB1BhLE/wCfrWLkluXGnKWyMVbaVk3qhK+tMZGXqpr0Kw8HGfaHiYYHOAf8OtaC/D0y5JXAyQP8+lYSxUI7s6o4GpLZHlg96lMjYCnAH513V58PZVcFV+XON2O9ZV34UvLdWAQMOwI/UVUcRTfUiWDqx3Rz4KuozF+OQM1Dls5IwKtTWN1CxBUg9Pu1UkVkba+4H3FbqSexg4tbkmV2gfNgVPby4bG7g9M8frSWUe84Uq5PG0Hn8u9E8XluQMjHY1RJ1Ph/xFscWl2+EOAjMentmuqxXl331Xyzk45U11fhTW2mxp9yxLquYy3Uj+6fpX3PDmettYTEP/C/0f6fcfOZtlqs69L5r9Tps0YNFKPavuT5wUGgkGk70GgQUUY4zSCgYtL0FHFITQIKKSgmmMDimU6jbSGiSgmlpKogM0YpKU0gCk70uc0UwCgnFApaBAMdTXIeMbwPcLBn5UX9ev8AhXXiuA8UZuNUkVBkhtuPevl+LKzp4LlX2ml+bPZyOmpYhyfRGTFc7SWfOPr96rJuXFs0oIiL5A45C9yB6mqTJ5T4BDN0yKll+eND2JCjP86/Mz7EpHMhIAOP1Nbmh+GZ9WuAApCjA+lP8K+HptavVCoTGDya918IeDILJFPlqwx19a4cVilSVlud+CwLrPmlsc54Z+HagF3QlcY5712Wm+B4I8uYwCB2FdtZ6VGkaqEAUc1ehsgpOAAK8adapN3Z78KNOmrJHLQ+GreOMDax7c1KdHjVCqxhcDHSurFsMZxUMlqFrJxbNoyRx8+iI2VZMg1h6poCMCGhDqOhxyPrXoUlryeM5rNvbYAdKlNxLspHk194NtZSW2KD1wOcmue1TwFFNA3yASdmWvYLm1TnCisu6s0cZ2iumniJJ7nLVwsGtj5w1nRbnR7gpKh29jVIXMgxli315r27xF4fh1O1kVkUso445rx/UdKexnkjK5K5OD6V7eHre0XmfOYvDOjLTYqhyR5icMOuKsQXEiTxXEZ2yqQ6n3HaqkIOWC5OOcVNG2RjPQ9RXXGTi1JbnG0mrM9QgmW5gjmTo6hvzqUcVkeGbpbnSYgPvRfu2Hv/APqrWr9pwddV6EKq6pM/P8RT9nUlDswoozS10GQmTRRilApiE70dadTaQCjikoopjA03J9adRSAfmkpxFJVEgKOtGKMUAFLRQKBCUtGKMUgEOMc15pcXrSz3Mm7DzuSD6DJ4r0mb/VN9K8suAI55ccbcqB6V8RxnN8tKPTX9D6Th5K836AwSOPPU9fqe1FrFJezpBHzt5NQl9+0967b4c6EbsPcPGCrHAOM8D/69fntapyR5j6zD0nVmonofgPwxHp9tDFsG5wGdq9Y0u2VVVQB6fSue0WwS2hCqOeuSea6ewO0Zr5qc3Od2fXQgoQsjYgiwMVOIQOoqGBzjNWly1axsYyvccLdSvFV5YcdBmrqnC4qORSTwOK0aRnFu5kTrj61l3eSx4NdE9oXySKpXdqEBJH41zyi2dEZo5a5jAycVlXSDbgV0F6bZNwaRRgetYU9xZ7yDKoz3pRpy7FOpHuYV3HwcDOTzXl/jTTtl0zhcbiCTXrl1HsfBAIPII71zHi3RVvbF5Ix+8UcfSu7DVeSSuefjKPtIOx4nPH9ml3gcGmIoV1I4Un8q0bu2b95FIu10ORmqCERthhnDD8K9xO+p821bQ6XwleCG6a1I+SfJU+jDt/Ouu5FcDox/4mMWGIO/OPeu+znkd6/TOE68p4Nwl9l2X5nyGeU1GupLqhDiilNIK+nPGCil6UhoGLQaQ5pcZoEN70uKXFGKYCEcU3dinGmZ9qTGibikPSlpCeKohCZpRSDpS0DAnFKDSUUCHUUgNHegQOPlPrXll+SC5kGH3H+Zr1NhkEV5x4ghaTU7mNR0bHP1r4rjOF6VKfZtff8A8MfRcPS96cfJGVHA28IOSRn9M17j8M7JLbSIe+e1ePIq2ymTAzgIfwFe1fDWPOjo+fmIFfmeP/hn3OWfxT0ezCkD9K3dPtWf5ulYNpPDbIJJnCjOFz3NLe/EPTNJjZ94Zl6r0rxIUZTeh9BUrKC1Z3UNoFXpVpLcHqQK8cf44CVxHAkYye7ZrY0b4pvqriJowuP4hXU6XItUckavO/dZ6cYAeBzimOY4l5rAt/ERkwA2SajvtUYqWD49qzdWPQ2VKXUk8QeL7PSomyRvGOBXj/i74y3bySRaehA6F60vFrnU5c7yNp5561xsfh+O6utkcW8Fs+2enNXTqR3kZVaU9oGPceMNXuyDK5AJ/GtnS5Lq+BMlwUXHRmyDXa6L8NLQbZ7gea5/hxwv0rVu/C9lGuyJAqr2BxWs8TG2xlDCSvds4b7VqNpEnlyxzxqfmVj29jW1E63tqrEfeHINWrjTUtyUXAB4PFAt1hUNGAAO1ZOambRg4M8k8f6MLG8WaMY8zOa4ecdQR2zXtPjzTPtukvIoy8eW/CvHblQDjtjFerhZXhZ9DxMdT5al11JPDshXVLcP853ivRq850AsmrW3G75sEeor0Y+tfp3B3+7T/wAX6I+Iz7+LH0CgUDmlr688ESiilNABSZopBQMWkJpaaaAQuabgUtJmkxktN6mnUGqIEooooAWiiigApKOtFADu1cf4itVtr1ZyvMpOT6119Y/iSza4tVlUAmLJOfSvC4iwf1jBS5Vdx1X6/gellNf2WIV9nocaYvMhMjkhWYNn2xXuXw7gEWgxP0BHf6V4e25gsYyTt4HpXuPgEm58KW4yAdpXNfjmOV4pH6RlrSmyPWtcn1Nja2PSE/e7VhweGNT164KqJH55KH+tdjomhRkiMj5t2XI44rr4Lyy0txbQxNNcAZKR4yB6sTwB9a86WI5HywR6iw3tPemzzVPhZfWqGYxgt2DHmrFvp1xpfyGIocV2Wt+NrOyDxXOoaXaSqMmMv5jD6niuW/4TGxu2RTd2kofgMrY/Q/41lUdSW5vSjTjojotDu5nCo/51vPbTTQFuenWuf0eJ1mjLIQr8jPQiu/jjQ6eQFycda40tWmdbdkrHlWt2phkIJySadZTW2k25Z9pkbpmtPxDaMzuQMHtXNavoU+sXdnmdI7KOENLGGKtK+TkE46AAfnWtFczsyKr5VcNS+Ken6GDDKs19LJnA3+XCo9z0/mawYviL/bd79lsvD8cvDOTDNkMq/eIPGa6HXdF0fxFYWNjceRZraZCPbqchT1U54I4FZ9h4Q8O6O8jW8rlmTYWL7mx3HQAdugr0L0FHXVnnOOJlO60RnWfiuW8vRBBa3kS55V23L+tdvp++eIHaR65qlpOim5uFNvb+VboMAkda6gWP2eMjHPsK4qs4391HXThK3vO5zuqWYmtpoOu5SK8Iu9Pdr97QD5i5THvX0NeREEuevevNdQ0iKDx5ZS7R5U77yp6Egc134Stypnn46hzOPqHw9+Fc32n+1tbmWG3RTiIHqPVj/QV093NpM87Wn9j7LRDtFyhxIP8Aax6e1dPc7b8WljBhEdhuHTKjr/SrGtaJHazxbUAR8Rk+/aslmmLg1KFRqzurNpI6oZdhrcsoJ33urnlt5amyupIGYNsOAw6MOx/EVDXReNNNNlNZSkD95AVJHqjFf5YrnAK/eskxzx2BpYmW8lr6rR/ij8gzbBrCYypQWyenpuvwFFFBGKK9U84WmnrTqQ0gQUhFOpp5NMBDjFNpxpKQySkpaaaoSFo6UA0A5pAGaM0UlADgaDzSCimIWmyxiWJo2GQwxTqciNIwRVLMTgADJJqZWs77Ar30PPrq2kstSljK8L0zXrnwsmZtFMJ58t+/vXKeJ/C97tEz2c8UpGMMhGRW78LJzHdXlo+QQiHB/KvxjPsFHDzl7Npweqa1Xp8j9LyXESqOPOmpdU9DttQuJNKSSWPAYqQpPQHtXHQ6lqmt3BsbZrmzsiT59xtzLMx6nPb+leovpsV5GgZA2TxmqcujX1lIZLS0WRT244r4+nVS1a1PrKlJy0TsjxIfD3xH9suY45v9HEhDzSTBUnGeM9z24xXeWvh+zTStM0e6WzuXhi2ExQ7nc5JJyegGa6I+HvEGsSlZAlnCeWPBP4AV1GheCLXS0Mh3SSEDfK/Jb2rpqYyUlYwpYKnTdzH0PShYx21nbmUW9spCCRskZOevp7dq7i3T/RtvXisvasbttA61r2kbPFmvOTbk2zudkkkcxq1mDKxYZFZsFlCWCkAqTXT6ranB55rm5YbhMuqFlB7danl10NU9CwfClhcqDJbI/PUDBqzZeENMtiGWzQN6kZq9o06zw43ZI6g9RWwgwBxkVsrtamMrdChHp8UQwqKB7VUvoUVDitacYUnpmsW/m2g5NRIInN6rwjcfSuNvIll1KxlZfmikPPplTXX6nL5oYVyZJa+jz/C+a66D91nLWWqL9hrV9p2qWytZq8eza0jDJVs9vwruxJHr9o8Y+STGU+o5rJs7aC4BDx7wYxk4+6ex+talhALK/giUHgbmz24rlZ1x2ON+IKpJo2nzg5b7RKv5qCf1rggK7fx1Kp0qxRRw1zO6+4zjNcTmv3Dga6yiF+8vzZ+T8Wf8jKfovyCjpQOaDX1x80LSGgUcmgLBmkNFLigBpFNzTiabxSKRLTSKWjNUSJRS0lAC0UUUgDFFFFAC1v8Ah64m0yyutRtI0a83pBC7KD5WcksAe+BisCur8DCK6+22L5MhCTxL/eKk7h+Rz+FfM8YuqsorOlvZX9Lq/wCH4HvcL+z/ALTpKrtr99nb8Tq/D2u6nfac7a5aw3Sq+wTKgDAY/iA4P1rO1bSrPTvElhe2ESol3HJFNt6bhhl/ka7fw9awxW04dFEZbIB9CBXI+JtSsINYh0yFJQHO9WI4EgPCj0zX4VRnyyT7n67WgpXSWx1OlgNGhbqK34YhIBgCuX0a7WWNQK6yylQIPWk1aTTJbvG49bMKckd+lLKhEZx0AqyrKeTzVW+lxGQCOlbWVjNNtmNDCx/eMMIWrSGsQ2EXyrGwHXPpXE+LfGc2l6c6WNt9pn+6I87Rn3PYVwel+IfGM80gv9PtxCxyBDIzN/hWUIveJtK10pI9V1jxNbyIxwiHHGK5qz8c6MzNZTXtst2x+WLzBuP4VzD6dqniLNsUmQA5YnK5Hpmoh8Obe2ybaztoJTj95syQfWmoJ6y3Hdp2jsdnaaxEuqqIWGJAcgV2dregxgsc15v4c8Otplz51zcNcSdA7cAD0ArsYZQo68VN7FNXNO7uVIbFc/qc42k57VZurkHo3FY1/LvQjr9KzbuxpWRjXVwWLj0rALfv9x4Oc1rSDIf1rNlQq2T6110dE0cdbVnW6JJeXF0Vgnit7fagkY8yHAH3R/WtaRpmuZrb5ljl4aXPzY7jNZ2gwwy6fDcCRVfbg4qHxN4kg0ixkVZRJduu2Ne49/wqcPh6uKqxoUVeUnZGlatTw9N1ajslucn8QdQin1aOyttogsohGAvQHv8A0rlh1p0sjSOXdizMcknuaYK/oXKcvjgMHTwsdeVfe92/vPxfMcY8ZiZ4h/af4dPwHUZoA4pD6V6Rwi0AikAoAxzQA7FHNAoNAhrUynnrTKTKRLSZpetJtqiQBpRzTSKUYFAC0GjNBpAGaWkFLQITNaHh7VW0XWrPUOqwyAuPVejD8iaz6Wsq9GNanKlPaSafozWjVlSnGpDdO6+R9C2oRbO6MbbkUq0ZHdCPlP5Vip4dWbWkv3UO0A8zpnmq3gDVvt3hyCSXdILRTZzqnLBeqNjvgHH4V0lofJDrFcQygrlWkUj8DX8347CSwmJnhp7xbX/B+Z+5YPFLE4eNeO0kn/XochbyHTdWnt8/u9+5Poea6iwvtx61z3isSSXqXvlxrg7XaMkjn6j/ADmk0+9KlcHisqnvJTRcLr3Wdyt0MZzikdhJ37ViR3e/vU51ARR7y3XiohNvQuUbalDWvCWn6tJ5kwkVu5jcru+tOstCtNPjWKCIKB+Jx9asrdidwBz+NU7zX7e2YxxYlceh+UfU1ohJSloi/HCo6KAQap3cKCXb3Iyaybnxe0aOyRRKx+UMCflP41yt9r0Pmlrm4kkmPdnNW02i1T7naSpsGcjHSs661F4cgHp71yk2qaldxD+z4bwjpuCEKfzrBlPivUL9LaNhDEc75ZcHaPoOppKk92Z1Xy7HoseoGYo65KP8pqKeUhHznim6dZNp+mwxPI0jJjLt1NU725ClwO5rGUfe0GpPl1KytuZj2zVDVDsUkdetXFYIKytXm/cNzggV24Sm6lWMF1djkxM1Cm5PoZdprmo2ts1vDdOkTEnHXH0NVJJHlYvI7Ox6ljk0wdKcK/oHCZZhMI3KhTUW92kkfjeJx+IxCUa03JLZNicmkp1Ia7jkCjFFANMBQKDxQKQ0hB2ozxigUHigY00mKUmkzQMfS0GjNUSBpM0UlIY4UUgFLQIBS0gooELRRSGgZseGPE1z4Y1AXEPzwv8ALNCTxIv+PpXtGi6zpWs2C3NlOrKfvo33lPoRXz8RUtte3NlJ5ltPJC3qjYzXyHEfClLNP31J8tXv0fr/AJn0uScQ1MAvZVFzU+3Ven+R7l4lltINFuGZgcjIrltNnSW1WWNtwIBBrz681zUtQQJc3ksqf3SeDWz4T1QITaO3A5X6elfCY7gzF4HBzxFWSbTWivt31t5dD67CcUYfFYqNCnFq99Xbft1O+trr5cg8Yqjqt9MsO6JC5X+EUzzvLYFTlWq7bbMhsgg9a+LSsz6mTuji5fGGsgm2TSb+N5CQrtHhSPY9K1dF8LavdsJbq9trfzP4FO9lJ7EnArsJrOC4twBjPasS/wA2yFQp3V0KcV0KopL4mTp8OLFphFf3802ctw4AB/CrkugeH9GiP2eGISRD7+MsfxNcvc67d20DCOF9/YhqzFv9YvwS48vJySTk1ftFbRHS6kU9/uRr3GqJPM45RM8IOpPrT7CPzpS5XAzzxVay0aVgHkJz39TWqyi1h2qOawlO5hUm5u7DUbldvlp2rnbqbkitCdixPJxWLfNmXANKKMJMc03GAaxtUuN4Kj8avXE4ijOTjiseVXMJkfqxGPpXt5JD/bKTf80fzR5Gaz/2aol/K/yK2acCabSgV+/n48LmjrTaXNAWFpMc0uaTOKYDsUZ5xTQc0YxQAtNJzS5pKAEpMClNNoZSJjSUp5pCKZAlLmkIoApDHZopMUtAgJo60hNAIpAKaOtBo5FMBKQnmg0lIYZqSCdoJVkU4KnNR0YqKkIzi4TV09GXCThJSi7NHa6bqq3cIBbr29K1LK9ZJCmciuP0pHaxeWL/AFkLfmDWtp2pq7ANww61+AZ1l6wuMqUYbRf4dPwP2PK8a8RhoVJbtf8ADnb21w6854xVr5bg8qCay9PuFmUDI6Vu2iIoya8No9eMihJoJun+4PyqRfDKpj681ri6SIcEHiqtxrGOgGcVokrai5n0K89hHbKFBHTtWVfRA8D1q42pCVstge1ULy6TBJNS99B37mdeBIo2wea5fUJ1Ukk4q5rOrKisAR+dcjdXsl25RSdpNdVKnpdnFWq62RYeZr+UJ/ADzVm/XZbge4pNMtQpHBqXVQBEAOxr18lmpZjQXTmj+aPMzOLWCqt78r/IyqM0Zor97PyMKUD3pKOlMBaBRmjntQALS0g4pc0CEIpKCc0UDCkxRSZNICXNIaU9M03rTJDPFGaMUuMUDAHmlptKKAYuKTFGaOtAgziijGaQUhhRQetJQMO9FFJQB0/g1RL9piI4O0/zqbWNHe2k8+HIPoKs+D9EuY9K/tl8C2uLhrWMd2ZFDE/T5gPzrp3t1uI9rL261+F8YVFHN6rg+35I/WeGYc2W01Lz/NnF6P4he2mWOXI9c12lv4ggeIfODXM6p4bUsXVee2KxTb3dqTgswHYnFfO+7U8j2vep76o7y71pAm4P7VmTa9FGGO4kngVxF3qU6MQyyge3NZU+tyBsBX49e9WqK7kuu+x3U3iHBHzECsvUPEjCPCtz9a5X7bdXGONv61JHbM7Zckn3qlCCM3UmySe5kuWyxNWLK0LsCRTobXcwGO9btlaBQPlpVJ6WFTp3dx9vbeWgNZ+rj5B9a2ZOBjtU3hywttU8S2Fjdxebb3DtE6+zKRn6jIP4V1ZRWVHGUqstlJP7mZZlSdTDVKa6pr8DiaSrWradLpGp3enz/wCstpmiY+u04z+NVa/oeMlKKlHZn4zKLi2mLSUtJTELS54pKKADNBNFFACUUUhNMEBPNFJjNLikxjz0oHFKabmmSOzQDSUZpALRSZxRmgBaWm0pNABmg02jNMBaSiikMKq6hfJYW5lblv4V9asO6xqXchVUZJPQCsCL/ipNftLSPPlzXEVsoPozgE/rXi53mawVC8X770X+fyPQy7B/WKuvwrf/ACPprTvDs0PwZ8PSBCJ7fbd3K4xjzQST+G5fyrPhUFQvtXtNpa2627WbRg2siGEx4424xj8q8x8ReGJ/DuomH5mtXy0MuPvD0PuO/wCdfiud05zn7d633P1DJq0Ix9ht2OeuYDg8AisO9sFYnaOe4rrDFkYrOvbTOSBXhxlY91q5xtzpUbDDIOfWsm68NIDuC9a7SeDggjNZ1zP9njYHnPFbqTMHFdTjpNPW2O0DmporbC7iKueWbmcv2qxJAFQVopGTiU7SAl/xrchi2LVawtizg9a1zBhMAVlOV2a042Rnypn5fWux+FnhtrrWm1SZSINPXcG7NKRwv4Akn8KyfD/hy68Q6mlhZplj80khHywp/eb+g7mvZYdOtdD0yLSrJSIowcsfvOT1Y+5NenlmGc5e0eyPNzLEKEfZrdny38YJ5tB+Jl7NLk2mopHc4/ukjaWH4rzWYGBwQQQeQR3rq/2mNPC3ujX4x8yTQfgCrD+Zry7QvECxIlrdnao+VJD29j/jX6bw/nKpSeFry93o308vQ+BzXL+de2prXr/mdRS00HIyDketLmvuj5mwtJ3oJpM0AOpKQGlJpDCjFJmlzTASjIoNM/GhjSJzTcUZpRQQJRilNJQMM0tJRQAooIopM0ALSUUySRIULyOqIOpY4FKUkldgk27IfUc08dvGZJXCKO5rHvfEsSHZaoZG6bm4H5VlXV7NdsDNIXx0HQD6Cvmsw4mw9BONH35fh9/+R6+FyerUadT3V+JLq+sPfnZHlIV6L3b3NHhi9Gn65p16TgW93DKforgn+VZk3Wn26/KccZr4DFYuriajq1Xds+ooUYUYqEFZH6IwMsq7l6NyPoamurC21azeyvY96N0PQqexB7GuY+GOur4l8D6JqYYF5bVFl9nUbW/UV1wTPTrWNRJqzNotxd0eWeIPDN54euD5v721c4inA4Ps3o36HtWLPECvIr3CSKK6ge3uY1licYZWGQRXnHivwRc6aWutPV7my6mMDMkI/wDZl/UV87i8vcPfp7H0OCzJTtCro+5wctvkfLzWTe6aZc5H1reZSvKnK/WoJWOOcAV5iZ61jm001YjyMfSobm0Ofat6b5skCqFzH8vzHrVqRLiQ6fbqBxW1ovh++8SX/wBi09BxzLOw+SFfU/0HerXgzwde+J5iId0NpGcS3LDhfYere3517Dp2m2OgWK6dpkISMdT1Z27sx7mvRweBdZ80vhPNxuOVFckNZfkU9G0Kx8K6cLGwUszfNLM335W/vH+g7Us4xknk1oGEopZ+WNUZhw1fS04KKtE+clJyfNLc+bv2nZgLzQrbdyIppiv1ZR/SvBiecV6x+0Rqw1Hx5JCpytnbxwj68sf5ivJm61nUfvC6GvpPiGfTwIpAZoB0Unlfof6V1VnqlpfAGCZST/AThh+Fee596eGIA2nkdK93LuI8RhEoS96PnuvRnl4rKqVd8y0Z6VTT1ri7HxFfWgAMvnIP4ZOf161u2niizuMLMGgf1PK/nX2GD4iweIsnLlfZ/wCex4VfKq9LVK68v8jYxRSJIkiB42VlPQqciivcTuro863cXpRnim5pQcVQBnim4pxwelJx6UmwRJQKKSmSLS0maWgAzSUHmql1q1nZ5DzBn/upyayrV6dGPNVkkvMunTnUfLBXZcA4qOeaK2QvNIsa+rGuevfE0zgi3QRD+8eT/hWPNcy3Db5ZGdvVjmvmcbxVQpXjh1zPvsv8z18PklWetV2X4m/f+JkTKWibj/fccfgKwLu+nu33zSM59+g/CoWOaZ14HJr47HZticY/3stOy2Pfw2Bo4de4te/UmhXJLn8Kl5zSINihR2p9eadZFIKdC20UjD3pqnmgZ9P/LLXicT6Jf8Ah+WQeZbTfaIl/wBh+v6j9a9/gk+baa+LPgNqzaX8QLJfNMa3CvEfQ8ZAP5V9jRO4VX65Fa8vNERr4BpcYqC3m3rg9asCudprQZw/i74fQ3/m32lBILk/M8R4jkPr/sn36V5hcwywTPBcRPBNGcNG4wRX0De3dtYW0tzeTxwW8alnkkbCqPc15fe+ItC8Y3cjy2kcWn2hIS+lmELN68novsc/hXDXy5Vryp6P8D1MJmUqfu1NUcM0RzjGa6Pwx8OrjxLcRXl8XttMTkno83svoPf8qc+v+A9KvrZIFutWkLgskEgkRV/vEHG4D0r1jTtU0/W7OO70y5juLUjCvGeAR29iPSsaGVuMuaqb4nNU48tH7yKK3gsraOxsIEgt4htVEGAKkjtwgyetWVRUBOKrXU+xSRXtR2tE8RtvVlS+mAGM1g6nfrDCzE8AVaupZJpMLXOeNXbTvDGp3zHC29tJJn3CnH610RRLPj/xtqbav4l1S9JJ865kYH2zgfoK5tqv3LbmO7lu/wBaputcknd3KIxxT1GaTFOQc0hB0b60o4NKw496RTuFAFm2vJrVt8MrofY4rYtPFMiYW5iEg/vJwf8ACsAUEYr0MJmeJwv8GbS7dPuOavhKVb+JG521trVhdYxMEY/wyDb/APWq794bgcg9CO9efAkVNBf3Nqf3M0iewPH5V9NheLpLTEQv5r/J/wCZ5NbI1vSl953eKTNc1beKJkwLiJJR6r8p/wAK04/EOnyIGLuh7qyHj8q+hw+e4Kurqdn56Hl1cuxFN6xv6amvQKjnnitY/MmkCL6nvWJe+JeCtqmP9tuv4CunG5nh8Gr1pa9upz4fB1a7/drTv0NyWaK3XfLIqL6sayrvxLDGStvGZD/ebgVz09zJO2+R2dj3JzUBOa+NxvFdapeOHXKu+7/yPfw+SU461Xd/gX7vV7q6yHlIX+6vAqiSTSAZ6UGvma2JqVpc1WTb8z2KdKFNcsFZCdaMUtGKwNBp6UiPHE4MjbR6npmndaZIm8YIBHvSGWyv8QORS9RWciy25/ct8vUoen/1qvK5eMErtJ6g0AIRn6U08Gn4puM0wNbwzqB0rXLC+DEGCdHJ9gef0zX39pJS50+CQEEMoIPrX53xtg190/BrW/7e+H+jXRbc/wBnWN/95RtP8qpP3WI7EwmNwy0uoanZ6Rps+o6hcR2trbRmWaaQ4VFA5Jqw/wAq180ftEeLL7xvYTaH4duXbT7OXfOI/u3rL1Ge4U8gdCR9KjWQ0jiPi78ZNR+I2ova27SWugQPm1tslWmI6Sy46k9l6KPevMrh3f5sbj781QW5kib94D+NaEbCZDTAqGZlOcc+3Fdh8NviprXwz1X7Vpspls52H2uxkb93cD1/2XHZh+ORXF3R2NiqYZ3bAzSuB+hnhHxvpHjzQYdZ0S4823kGHQ8PDJ3jcdmH69RxV2cPINtfJvwDuNf8KXE+rWUM81pcMI7mAnbHKg7/AO8MnB7dOhr6w06+t9UtYbq1ffE46ngg9wR2IraG1waI47MI+4ivPf2gL06Z8M9URTtNy0duPcM4J/QGvUJByFHevCP2qdZS30LTNHU5kmuDO/sqKQPzJP5VfNoSfL0xyxqHGTUsp5pgrmKGuoHSkXipMZqOXftPlgE+9IAlmSJdzmmQuXyxQqD0zRHbAHe53v6ntUwAxT1AKXHekxTgKYhuOKMU8D1pMUAMFLkinFMU09elFwLdxcyTOQzswAyATnFRjNOlUCZfoaXHFVKbk7yYkktEMpQMUuBSgVIxm2lIFONJ1FACAYpD1p1NPFACc0u3Jo61KAAKAGhADnvS0uOaXoRQAnamkU8UxjzQA5K+qv2Utfa78NajpD/es5vMT/dbk/r/ADr5VSvYP2ddbvNH1PWWtXAzHEMMMjksD/T8qqKvoB9P+I76bWxcaJpcpVlXF3Op/wBWCPuA/wB4jr6CuJ0XwDa6VM1vJGrxN2IzXXeDrGGxhm8rcTP+9kZjkux6k1ZvFAuOOxroglH3QZ8z/HP4LPogl8R6NAfsGQ1zCv8AyxJONw/2STz6V4tYuySmNifpX6Fz2kF/YTQXUSTRSxFHRxkMp4INfBnizTYNH8bavY2oYQ293LGm45IUMQKwqLW4IwtUG2XHc12Xwm8AS+M9ciSRCLWFg0rY6+1cffjddrn1r6f/AGe7GCDw9HMiYeQF2Pqc0qcU5BsejaX4UstP0tLK2hRIkGAAOprT0fRZdJeSaBspJzJF2b3HvWhaIrYz2q8yhYWI64rolLoBDHMssQuFYFRke4PofQ18qftH6v8A2jrtgc5Ekckq+0e4In57WP4179d3M1o87wyMv2kmORex/wBrH97HevnD9o5Ft/iH9kjGIYLC2RB6Agn+ZNTNWiwPJZetMFOl6GmpzXMMdQBR3pwGKAEK5FICB1p56UbQaYhMd6UCgdSPSigLBigjNLQelACY4phBqQU2gD//2Q==" x="144" y="96" width="112" height="148" clip-path="url(#pf)" preserveAspectRatio="xMidYMid slice"/>
- </svg>
-</header>
-</div>
-
-<section id="tentang"><div class="wrap"><h2>Tentang saya</h2>
- <div class="about">
-  <p>Saya pelajar SMKN 3 Kendari dengan minat pada cloud computing, administrasi server Linux, jaringan komputer, dan infrastruktur IT. Saya terbiasa belajar lewat praktikum dan proyek lab.</p>
-  <ul class="facts">
-   <li><span>Nama</span><b>Muh Riyad Azzikra Dz</b></li>
-   <li><span>Sekolah</span><b>SMKN 3 Kendari</b></li>
-   <li><span>Jurusan</span><b>TJKT</b></li><li><span>Kota</span><b>Kendari</b></li>
-  </ul>
- </div></div></section>
-
-<section id="keahlian"><div class="wrap"><h2>Keahlian</h2><div class="chips" id="skills"></div></div></section>
-<section id="proyek"><div class="wrap"><h2>Proyek dan prestasi</h2><div class="certs" id="projects"></div></div></section>
-<section id="sertifikat"><div class="wrap"><h2>Sertifikat</h2><div class="certs" id="certs"></div>
- <div class="certs-more"><button class="btn alt" id="moreCerts" type="button" aria-expanded="false" aria-controls="certs"><span id="moreCertsLabel">Lihat lebih banyak</span> <span class="chev" aria-hidden="true">▾</span></button></div>
-</div></section>
-<section id="kontak"><div class="wrap"><h2>Kontak</h2><div class="contacts" id="contacts"></div></div></section>
-<footer>© 2026 Muh Riyad Azzikra Dz</footer>
-
-<dialog id="lb"><img id="lbi" alt="Sertifikat diperbesar"><button class="btn main" id="lbx" type="button">Tutup</button></dialog>
-
-<script>
-/* ===== EDIT DATA DI SINI ===== */
-const DATA={
- wa:"6287860550780",
- ig:"05_azzikra",
- tiktok:"azzikra2205",
- email:"azzikrazull@gmail.com",
- skills:["Google Cloud Platform (GCP)","Dasar AWS","Ubuntu Server / Linux","VirtualBox","Apache / Nginx","SSH","MikroTik","DNS / BIND","Prometheus","Grafana","SNMP","Dasar Ansible"],
- projects:[
-  {t:"Juara 2 LKS Cloud Computing",d:"Lomba Kompetensi Siswa bidang Cloud Computing dengan penggunaan AWS.",pr:1},
-  {t:"Lab cloud di GCP",d:"VPC, subnet, VM Ubuntu, firewall, Cloud SQL, Cloud Storage, dan Managed Instance Group dengan autoscaling."},
-  {t:"Lab server Linux",d:"Konfigurasi Ubuntu Server, SSH, web server Apache/Nginx, DNS/BIND, dan layanan jaringan."},
-  {t:"Monitoring jaringan",d:"Monitoring MikroTik dengan SNMP, Prometheus, SNMP Exporter, dan Grafana."}
- ],
- certs:[
-  {t:"Red Hat OpenStack Administration I (CL110)",d:"Red Hat · 6 April 2026 · 40 jam",v:"https://www.credly.com/badges/e931998e-b6d1-4fa7-b08d-d46e64275114"},
-  {t:"Red Hat Enterprise Linux Automation with Ansible (RH294)",d:"Red Hat · 10 Maret 2026 · 32 jam",v:"https://www.credly.com/badges/64dc87c0-4718-493a-9722-daa1459b020b"},
-  {t:"Cyber Security Dasar",d:"ID-Networkers · berlaku sampai 21-03-2029",v:"https://lms.idn.id/cert-verification"},
-  {t:"Belajar Linux dari Nol+",d:"ID-Networkers · berlaku sampai 18-03-2029",v:"https://lms.idn.id/cert-verification"},
-  {t:"Cisco Dasar",d:"ID-Networkers · berlaku sampai 21-03-2029",v:"https://lms.idn.id/cert-verification"}
- ]
-};
-
-/* ⬇️ JANGAN DIUBAH — tempel UTUH dari file asli kamu (5 string base64 gambar, urutan sama) */
-const IMGS=[
-/* ISI ASLI DARI FILE KAMU DI SINI — biarkan apa adanya */
-];
-
-/* ⬇️ JANGAN DIUBAH — tempel UTUH dari file asli kamu (string base64 PDF CV) */
-const CV_B64="/* ISI ASLI DARI FILE KAMU DI SINI — biarkan apa adanya */";
-/* ============================= */
-
-const $=id=>document.getElementById(id);
-const esc=s=>String(s).replace(/[&<>"]/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
-
-$("skills").innerHTML=DATA.skills.map(s=>`<span class="chip">${esc(s)}</span>`).join("");
-$("projects").innerHTML=DATA.projects.map(c=>`<article class="cert pr"><h3>${esc(c.t)}</h3><p>${esc(c.d)}</p></article>`).join("");
-
-/* ===== Sertifikat: tampil 4, sisanya lewat "Lihat lebih banyak" ===== */
-const VISIBLE_CERTS=4;
-$("certs").innerHTML=DATA.certs.map((c,i)=>`<article class="cert${i>=VISIBLE_CERTS?" hide":""}"><button class="z" type="button" data-i="${i}" aria-label="Perbesar sertifikat ${esc(c.t)}"><img src="data:image/jpeg;base64,${IMGS[i]}" alt="Sertifikat ${esc(c.t)}"></button><h3>${esc(c.t)}</h3><p>${esc(c.d)}</p><p><a href="${esc(c.v)}" target="_blank" rel="noopener">Verifikasi sertifikat</a></p></article>`).join("");
-
-const moreBtn=$("moreCerts");
-const moreLabel=$("moreCertsLabel");
-const certCards=[...$("certs").querySelectorAll(".cert")];
-if(DATA.certs.length<=VISIBLE_CERTS){
- moreBtn.parentElement.hidden=true;
-}else{
- moreBtn.addEventListener("click",()=>{
-  const expanded=moreBtn.getAttribute("aria-expanded")==="true";
-  certCards.forEach((el,i)=>{
-   if(i<VISIBLE_CERTS)return;
-   if(expanded){
-    el.classList.add("hide");
-    el.classList.remove("reveal");
-   }else{
-    el.classList.remove("hide");
-    el.classList.add("reveal");
-   }
-  });
-  moreBtn.setAttribute("aria-expanded",String(!expanded));
-  moreLabel.textContent=expanded?"Lihat lebih banyak":"Lihat lebih sedikit";
- });
+footer{
+  padding:2rem 0;color:var(--muted);text-align:center;
+  border-top:2px solid var(--line);
 }
 
-/* ===== Lightbox ===== */
-const lb=$("lb");
-$("certs").addEventListener("click",e=>{const b=e.target.closest("button.z");if(!b)return;$("lbi").src="data:image/jpeg;base64,"+IMGS[+b.dataset.i];lb.showModal()});
-$("lbx").addEventListener("click",()=>lb.close());
-lb.addEventListener("click",e=>{if(e.target===lb)lb.close()});
+/* ===================== LIGHTBOX ===================== */
+dialog{
+  max-width:min(92vw,900px);
+  border:0;border-radius:var(--radius);padding:1rem;
+  background:var(--surface);color:var(--ink);
+}
+dialog::backdrop{background:rgba(0,0,0,.65)}
+dialog img{width:100%;height:auto;display:block;margin-bottom:.8rem}
 
-/* ===== Kontak ===== */
-const links=[
- ["WhatsApp","+"+DATA.wa,"https://wa.me/"+DATA.wa],
- ["TikTok","@"+DATA.tiktok,"https://www.tiktok.com/@"+DATA.tiktok],
- ["Instagram","@"+DATA.ig,"https://www.instagram.com/"+DATA.ig],
- ["Gmail",DATA.email,"mailto:"+DATA.email]
+/* ===================== CV KHUSUS CETAK / SIMPAN PDF ===================== */
+#cv{display:none}
+@media print{
+  body > *:not(#cv){display:none !important}
+  #cv{
+    display:block;color:#000;background:#fff;
+    font:11pt/1.5 Figtree,Arial,sans-serif;padding:0;
+  }
+  #cv h1{font-size:24pt;margin-bottom:2pt}
+  #cv h2{
+    font-size:12pt;border-bottom:1.5pt solid #000;
+    margin:14pt 0 5pt;padding-bottom:2pt;
+  }
+  #cv ul{margin:0;padding-left:16pt}
+  :root{padding:0}
+}
+
+/* ===================== RESPONSIF ===================== */
+@media (max-width:760px){
+  .hero,.about{grid-template-columns:1fr}
+  nav{justify-content:flex-start}
+}
+</style>
+</head>
+
+<body>
+
+<div class="wrap">
+  <nav aria-label="Menu utama">
+    <a href="#tentang">Tentang</a>
+    <a href="#keahlian">Keahlian</a>
+    <a href="#proyek">Proyek</a>
+    <a href="#sertifikat">Sertifikat</a>
+    <a href="#kontak">Kontak</a>
+  </nav>
+
+  <header class="hero">
+    <div>
+      <h1>Muh Riyad Azzikra Dz</h1>
+      <p>Pelajar TJKT di SMKN 3 Kendari yang berminat pada cloud computing, administrasi server Linux, dan jaringan komputer. Juara 2 LKS bidang Cloud Computing.</p>
+      <div class="btns">
+        <button class="btn main" id="dl" type="button">Unduh CV</button>
+        <a class="btn alt" href="#kontak">Hubungi saya</a>
+      </div>
+    </div>
+
+    <svg class="topo" viewBox="0 0 400 340" role="img"
+         aria-label="Diagram jaringan dengan foto Riyad di tengah, terhubung ke keahlian, sertifikat, dan kontak">
+      <line class="live" x1="200" y1="170" x2="70" y2="60"/>
+      <line class="live" x1="200" y1="170" x2="330" y2="60"/>
+      <line class="live" x1="200" y1="170" x2="70" y2="280"/>
+      <line class="live" x1="200" y1="170" x2="330" y2="280"/>
+
+      <circle class="nd" cx="70" cy="60" r="34"/><text x="70" y="65">Router</text>
+      <circle class="nd" cx="330" cy="60" r="34"/><text x="330" y="65">Switch</text>
+      <circle class="nd" cx="70" cy="280" r="34"/><text x="70" y="285">Server</text>
+      <circle class="nd" cx="330" cy="280" r="34"/><text x="330" y="285">Klien</text>
+
+      <defs>
+        <clipPath id="pf">
+          <rect x="144" y="96" width="112" height="148" rx="14"/>
+        </clipPath>
+      </defs>
+
+      <rect class="core" x="138" y="90" width="124" height="160" rx="20"/>
+      <!-- Ganti "foto.jpg" dengan file foto profil kamu -->
+      <image href="foto.jpg" x="144" y="96" width="112" height="148"
+             clip-path="url(#pf)" preserveAspectRatio="xMidYMid slice"/>
+    </svg>
+  </header>
+</div>
+
+<section id="tentang">
+  <div class="wrap">
+    <h2>Tentang saya</h2>
+    <div class="about">
+      <p>Saya pelajar SMKN 3 Kendari dengan minat pada cloud computing, administrasi server Linux, jaringan komputer, dan infrastruktur IT. Saya terbiasa belajar lewat praktikum dan proyek lab.</p>
+      <ul class="facts">
+        <li><span>Nama</span><b>Muh Riyad Azzikra Dz</b></li>
+        <li><span>Sekolah</span><b>SMKN 3 Kendari</b></li>
+        <li><span>Jurusan</span><b>TJKT</b></li>
+        <li><span>Kota</span><b>Kendari</b></li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<section id="keahlian">
+  <div class="wrap">
+    <h2>Keahlian</h2>
+    <div class="chips" id="skills"></div>
+  </div>
+</section>
+
+<section id="proyek">
+  <div class="wrap">
+    <h2>Proyek dan prestasi</h2>
+    <div class="certs" id="projects"></div>
+  </div>
+</section>
+
+<section id="sertifikat">
+  <div class="wrap">
+    <h2>Sertifikat</h2>
+    <div class="certs" id="certs"></div>
+  </div>
+</section>
+
+<section id="kontak">
+  <div class="wrap">
+    <h2>Kontak</h2>
+    <div class="contacts" id="contacts"></div>
+  </div>
+</section>
+
+<footer>© 2026 Muh Riyad Azzikra Dz</footer>
+
+<!-- Lightbox sertifikat -->
+<dialog id="lb">
+  <img id="lbi" alt="Sertifikat diperbesar">
+  <button class="btn main" id="lbx" type="button">Tutup</button>
+</dialog>
+
+<!-- CV versi cetak (otomatis terisi dari DATA) -->
+<div id="cv" aria-hidden="true"></div>
+
+<script>
+/* =========================================================
+   1. DATA — ubah isinya di sini saja
+   ========================================================= */
+const DATA = {
+  nama: "Muh Riyad Azzikra Dz",
+  sekolah: "SMKN 3 Kendari",
+  jurusan: "TJKT",
+  kota: "Kendari",
+
+  wa: "6287860550780",
+  ig: "05_azzikra",
+  tiktok: "azzikra2205",
+  email: "azzikrazull@gmail.com",
+
+  skills: [
+    "Google Cloud Platform (GCP)", "Dasar AWS", "Ubuntu Server / Linux",
+    "VirtualBox", "Apache / Nginx", "SSH", "MikroTik", "DNS / BIND",
+    "Prometheus", "Grafana", "SNMP", "Dasar Ansible"
+  ],
+
+  projects: [
+    { t: "Juara 2 LKS Cloud Computing", d: "Lomba Kompetensi Siswa bidang Cloud Computing dengan penggunaan AWS.", pr: true },
+    { t: "Lab cloud di GCP", d: "VPC, subnet, VM Ubuntu, firewall, Cloud SQL, Cloud Storage, dan Managed Instance Group dengan autoscaling." },
+    { t: "Lab server Linux", d: "Konfigurasi Ubuntu Server, SSH, web server Apache/Nginx, DNS/BIND, dan layanan jaringan." },
+    { t: "Monitoring jaringan", d: "Monitoring MikroTik dengan SNMP, Prometheus, SNMP Exporter, dan Grafana." }
+  ],
+
+  certs: [
+    { t: "Red Hat OpenStack Administration I (CL110)", d: "Red Hat · 6 April 2026 · 40 jam", v: "https://www.credly.com/badges/e931998e-b6d1-4fa7-b08d-d46e64275114" },
+    { t: "Red Hat Enterprise Linux Automation with Ansible (RH294)", d: "Red Hat · 10 Maret 2026 · 32 jam", v: "https://www.credly.com/badges/64dc87c0-4718-493a-9722-daa1459b020b" },
+    { t: "Cyber Security Dasar", d: "ID-Networkers · berlaku sampai 21-03-2029", v: "https://lms.idn.id/cert-verification" },
+    { t: "Belajar Linux dari Nol+", d: "ID-Networkers · berlaku sampai 18-03-2029", v: "https://lms.idn.id/cert-verification" },
+    { t: "Cisco Dasar", d: "ID-Networkers · berlaku sampai 21-03-2029", v: "https://lms.idn.id/cert-verification" }
+  ]
+};
+
+/* =========================================================
+   2. ASET — ganti dengan file milikmu
+   ========================================================= */
+/* Gambar sertifikat, urutannya sama dengan DATA.certs.
+   Bisa juga berupa data URI: "data:image/jpeg;base64,...."  */
+const CERT_IMG = [
+  "img/sertifikat-1.jpg",
+  "img/sertifikat-2.jpg",
+  "img/sertifikat-3.jpg",
+  "img/sertifikat-4.jpg",
+  "img/sertifikat-5.jpg"
 ];
-$("contacts").innerHTML=links.map(l=>`<a class="contact" href="${esc(l[2])}" target="_blank" rel="noopener"><small>${l[0]}</small><strong>${esc(l[1])}</strong></a>`).join("");
 
-/* ===== Unduh CV ===== */
-$("dl").addEventListener("click",()=>{
- const bin=atob(CV_B64),a=new Uint8Array(bin.length);for(let i=0;i<bin.length;i++)a[i]=bin.charCodeAt(i);
- const url=URL.createObjectURL(new Blob([a],{type:"application/pdf"}));
- const l=document.createElement("a");l.href=url;l.download="CV_Muh_Riyad_Azzikra_Dz.pdf";document.body.appendChild(l);l.click();l.remove();
- setTimeout(()=>{try{window.open(url,"_blank")}catch(e){}},300);
+/* File CV PDF yang diunduh tombol "Unduh CV" */
+const CV_FILE = "cv.pdf";
+
+/* =========================================================
+   3. UTILITAS
+   ========================================================= */
+const $ = (id) => document.getElementById(id);
+const esc = (s) => String(s).replace(/[&<>"']/g, (c) => ({
+  "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;"
+}[c]));
+
+/* =========================================================
+   4. RENDER KONTEN
+   ========================================================= */
+
+/* Keahlian */
+$("skills").innerHTML = DATA.skills
+  .map((s) => `<span class="chip">${esc(s)}</span>`)
+  .join("");
+
+/* Proyek & prestasi */
+$("projects").innerHTML = DATA.projects
+  .map((p) => `
+    <article class="cert${p.pr ? " pr" : ""}">
+      <h3>${esc(p.t)}</h3>
+      <p>${esc(p.d)}</p>
+    </article>`)
+  .join("");
+
+/* Sertifikat (dengan gambar + lightbox) */
+$("certs").innerHTML = DATA.certs
+  .map((c, i) => {
+    const src = CERT_IMG[i] || `img/sertifikat-${i + 1}.jpg`;
+    return `
+      <article class="cert">
+        <button class="z" type="button" data-i="${i}"
+                aria-label="Perbesar sertifikat ${esc(c.t)}">
+          <img src="${esc(src)}" alt="Sertifikat ${esc(c.t)}" loading="lazy">
+        </button>
+        <h3>${esc(c.t)}</h3>
+        <p>${esc(c.d)}</p>
+        <p><a href="${esc(c.v)}" target="_blank" rel="noopener">Verifikasi sertifikat</a></p>
+      </article>`;
+  })
+  .join("");
+
+/* Kontak */
+const CONTACTS = [
+  ["WhatsApp", "+" + DATA.wa, "https://wa.me/" + DATA.wa],
+  ["TikTok", "@" + DATA.tiktok, "https://www.tiktok.com/@" + DATA.tiktok],
+  ["Instagram", "@" + DATA.ig, "https://www.instagram.com/" + DATA.ig],
+  ["Gmail", DATA.email, "mailto:" + DATA.email]
+];
+
+$("contacts").innerHTML = CONTACTS
+  .map(([label, value, href]) => `
+    <a class="contact" href="${esc(href)}" target="_blank" rel="noopener">
+      <small>${esc(label)}</small>
+      <strong>${esc(value)}</strong>
+    </a>`)
+  .join("");
+
+/* =========================================================
+   5. LIGHTBOX SERTIFIKAT
+   ========================================================= */
+const lb = $("lb");
+const lbi = $("lbi");
+
+$("certs").addEventListener("click", (e) => {
+  const btn = e.target.closest("button.z");
+  if (!btn) return;
+
+  const i = Number(btn.dataset.i);
+  lbi.src = CERT_IMG[i] || `img/sertifikat-${i + 1}.jpg`;
+  lbi.alt = "Sertifikat " + DATA.certs[i].t;
+  lb.showModal();
 });
+
+$("lbx").addEventListener("click", () => lb.close());
+
+/* klik area gelap di luar dialog = tutup */
+lb.addEventListener("click", (e) => {
+  if (e.target === lb) lb.close();
+});
+
+/* =========================================================
+   6. UNDUH CV
+   ========================================================= */
+$("dl").addEventListener("click", () => {
+  const a = document.createElement("a");
+  a.href = CV_FILE;
+  a.download = "CV_Muh_Riyad_Azzikra_Dz.pdf";
+  document.body.appendChild(a);
+  a.click();
+  a.remove();
+});
+
+/* =========================================================
+   7. CV VERSI CETAK (Ctrl/Cmd + P → Simpan sebagai PDF)
+   ========================================================= */
+$("cv").innerHTML = `
+  <h1>${esc(DATA.nama)}</h1>
+  <p>
+    Pelajar ${esc(DATA.jurusan)} ${esc(DATA.sekolah)} · ${esc(DATA.kota)}<br>
+    WhatsApp +${esc(DATA.wa)} · ${esc(DATA.email)} ·
+    Instagram @${esc(DATA.ig)} · TikTok @${esc(DATA.tiktok)}
+  </p>
+
+  <h2>Profil</h2>
+  <p>Pelajar ${esc(DATA.jurusan)} di ${esc(DATA.sekolah)} yang berminat pada cloud computing,
+  administrasi server Linux, jaringan komputer, dan infrastruktur IT.
+  Juara 2 LKS bidang Cloud Computing. Terbiasa belajar melalui praktikum dan proyek lab.</p>
+
+  <h2>Keahlian</h2>
+  <ul>${DATA.skills.map((s) => `<li>${esc(s)}</li>`).join("")}</ul>
+
+  <h2>Proyek &amp; Prestasi</h2>
+  <ul>${DATA.projects
+    .map((p) => `<li><b>${esc(p.t)}</b> — ${esc(p.d)}</li>`)
+    .join("")}</ul>
+
+  <h2>Sertifikat</h2>
+  <ul>${DATA.certs
+    .map((c) => `<li><b>${esc(c.t)}</b> — ${esc(c.d)}</li>`)
+    .join("")}</ul>
+`;
 </script>
 </body>
 </html>
